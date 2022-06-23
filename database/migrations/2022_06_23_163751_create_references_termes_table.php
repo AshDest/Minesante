@@ -23,13 +23,22 @@ return new class extends Migration
             $table->date('date_ret');
             $table->string('moyen_transp');
             $table->unsignedBigInteger('partenaire_id');
-            $table->foreign('partenaire_id')->references('id')->on('partenaires');
+            $table->foreign('partenaire_id')->references('id')
+                ->on('partenaires');
             $table->string('lieu');
             $table->unsignedBigInteger('province_id');
             $table->foreign('province_id')->references('id')
                 ->on('provinces')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
+            $table->unsignedBigInteger('signateur');
+            $table->foreign('signateur')->references('id')
+                ->on('agents')
+                ->onUpdate('cascade');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')
+                ->on('users')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
     }
