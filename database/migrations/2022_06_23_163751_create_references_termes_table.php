@@ -15,6 +15,21 @@ return new class extends Migration
     {
         Schema::create('references_termes', function (Blueprint $table) {
             $table->id();
+            $table->string('reference')->unique();
+            $table->unsignedBigInteger('service_id');
+            $table->foreign('service_id')->references('id')->on('services');
+            $table->string('objet');
+            $table->date('date_dep');
+            $table->date('date_ret');
+            $table->string('moyen_transp');
+            $table->unsignedBigInteger('partenaire_id');
+            $table->foreign('partenaire_id')->references('id')->on('partenaires');
+            $table->string('lieu');
+            $table->unsignedBigInteger('province_id');
+            $table->foreign('province_id')->references('id')
+                ->on('provinces')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

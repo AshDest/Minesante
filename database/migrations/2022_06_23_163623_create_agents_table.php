@@ -15,6 +15,14 @@ return new class extends Migration
     {
         Schema::create('agents', function (Blueprint $table) {
             $table->id();
+            $table->string('matricule')->unique();
+            $table->string('nom');
+            $table->string('postnom');
+            $table->string('prenom');
+            $table->string('sexe');
+            $table->unsignedBigInteger('service_id');
+            $table->foreign('service_id')->references('id')->on('services');
+            $table->boolean('signateur');
             $table->timestamps();
         });
     }

@@ -15,6 +15,14 @@ return new class extends Migration
     {
         Schema::create('participants', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('reference_id');
+            $table->foreign('reference_id')->references('id')
+                ->on('references_termes')
+                ->onUpdate('cascade');
+            $table->unsignedBigInteger('agent_id');
+            $table->foreign('agent_id')->references('id')
+                ->on('agents')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
     }
