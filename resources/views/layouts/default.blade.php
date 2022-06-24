@@ -21,8 +21,9 @@
 <body body data-layout="detached" data-topbar="colored">
     <div class="container-fluid">
         <div id="layout-wrapper">
-
-
+            @include('layouts._top_bar')
+            @include('layouts._vertical_menu')
+            @yield('content')
         </div>
     </div>
     <!-- Right bar overlay-->
