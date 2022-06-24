@@ -22,7 +22,7 @@ return new class extends Migration
             $table->unsignedBigInteger('agent_id');
             $table->foreign('agent_id')->references('id')
                 ->on('agents')
-                ->onUpdate('cascade');
+                ->onUpdate('cascade')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
