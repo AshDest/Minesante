@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Agent extends Model
 {
     use HasFactory;
+
+    protected $table = "agents";
+
+    protected $fillable = [
+        'matricule',
+        'nom',
+        'postnom',
+        'prenom',
+        'sexe',
+        'service_id',
+        'signateur',
+    ];
 }
