@@ -19,8 +19,14 @@
 </head>
 
 <body body data-layout="detached" data-topbar="colored">
+    <div class="container-fluid">
+        <div id="layout-wrapper">
 
 
+        </div>
+    </div>
+    <!-- Right bar overlay-->
+    <div class="rightbar-overlay"></div>
 
 
 
