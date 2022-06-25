@@ -25,10 +25,11 @@
             @include('layouts._vertical_menu')
             @yield('content')
         </div>
+
     </div>
     <!-- Right bar overlay-->
     <div class="rightbar-overlay"></div>
-    @livewireScripts
+
     <!-- SCRIPTS OF ACTION MESSAGE-->
     <script>
         window.livewire.on('ServiceAdded',()=>{
@@ -59,6 +60,7 @@
     <script src="{{ asset('assets/js/pages/dashboard.init.js') }}"></script>
     <!-- App js -->
     <script src="{{ asset('assets/js/app.js') }}"></script>
+    @livewireScripts
 </body>
 
 </html>

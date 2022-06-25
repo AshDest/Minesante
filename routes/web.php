@@ -2,6 +2,7 @@
 
 use App\Http\Livewire\Services;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Toto;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +18,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/toto', [App\Http\Controllers\HomeController::class, 'toto'])->name('toto');
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/services', Services::class);
+//Route::get('/test', Toto::class);
+

@@ -10,17 +10,7 @@ class Services extends Component
     public $ids;
     public $designation;
     public $encronyme;
-
-
-    use WithPagination;
-    public function render()
-    {
-        $searchTerm = '%'.$this->searchTerm . '%';
-        $services = Service::where('designation','LIKE',$searchTerm)
-                            ->orWhere('encronyme','LIKE',$searchTerm)
-                            ->orderBy('id','DESC')->paginate(5);
-        return view('livewire.services', ['services'=>$services]);
-    }
+    public $searchTerm;
 
     public function resetInputFields()
     {
@@ -29,15 +19,18 @@ class Services extends Component
     }
     public function store()
     {
+        dd("fffff");
         $validatedData = $this->validate([
             'designation' => 'required',
             'encronyme' => 'required'
         ]);
+        dd("fffff");
         Service::create($validatedData);
         session()->flash('message', 'Services created successfully');
         $this->resetInputFields();
         $this->emit('ServiceAdded');
     }
+
     public function edit($id)
     {
         $service = Service::where('id',$id)->first();
@@ -63,5 +56,15 @@ class Services extends Component
             $this->resetInputFields();
             $this->emit('ServiceUpdated');
         }
+    }
+
+    use WithPagination;
+    public function render()
+    {
+        $searchTerm = '%'.$this->searchTerm . '%';
+        $services = Service::where('designation','LIKE',$searchTerm)
+                            ->orWhere('encronyme','LIKE',$searchTerm)
+                            ->orderBy('id','DESC')->paginate(5);
+        return view('livewire.services', ['services'=>$services]);
     }
 }

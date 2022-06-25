@@ -1,35 +1,47 @@
-<div class="modal fade bs-example-modal-center" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+<!-- Modal -->
+<div wire:ignore.self class="modal fade" id="addStudentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title mt-0">Center modal</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Add New Student</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Ajouter un Nouveau Service</h4>
-                                <form class="custom-validation" action="#">
-                                    <div class="mb-3">
-                                        <label class="form-label">Designation</label>
-                                        <input type="text" class="form-control" required placeholder="Type something" />
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">Encronyme</label>
-                                        <input type="text" class="form-control" required placeholder="Type something" />
-                                    </div>
-                                </form>
-
-                            </div>
-                        </div>
+                <form>
+                    <div class="form-group">
+                        <label for="firstname">First Name</label>
+                        <input type="text" name="firstname" class="form-control" wire:model='firstname'>
+                        @error('firstname')
+                        <span class="text-danger">{{$message}}</span>
+                    @enderror
                     </div>
-                </div>
+                    <div class="form-group">
+                        <label for="lastname">Last Name</label>
+                        <input type="text" name="lastname" class="form-control" wire:model='lastname'>
+                        @error('lastname')
+                        <span class="text-danger">{{$message}}</span>
+                    @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" class="form-control" wire:model='email'>
+                        @error('email')
+                        <span class="text-danger">{{$message}}</span>
+                    @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="text" name="phone" class="form-control" wire:model='phone'>
+                        @error('phone')
+                        <span class="text-danger">{{$message}}</span>
+                    @enderror
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" wire:click.prevent='store()'>Add Student</button>
             </div>
         </div>
-        <!-- /.modal-content -->
     </div>
-    <!-- /.modal-dialog -->
 </div>
