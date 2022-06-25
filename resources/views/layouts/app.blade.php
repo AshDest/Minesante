@@ -28,7 +28,23 @@
     </div>
     <!-- Right bar overlay-->
     <div class="rightbar-overlay"></div>
-
+    @livewireScripts
+    <!-- SCRIPTS OF ACTION MESSAGE-->
+    <script>
+        window.livewire.on('StudentAdded',()=>{
+            $('#addStudentModal').modal('hide');
+        });
+        window.livewire.on('StudentUpdated',()=>{
+            $('#updateStudentModal').modal('hide');
+        });
+        window.livewire.on('fileUploaded',()=>{
+            $('#form-upload')[0].reset();
+        });
+        window.livewire.on('imagesUploaded',()=>{
+            $('#upload-images')[0].reset();
+        });
+    </script>
+    <!-- SCRIPTS OF ACTION MESSAGE-->
     <!-- JAVASCRIPT -->
     <script src="{{ asset('assets/libs/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -52,8 +68,6 @@
     <script src="{{ asset('assets/js/pages/dashboard.init.js') }}"></script>
     <!-- App js -->
     <script src="{{ asset('assets/js/app.js') }}"></script>
-
-    @livewireScripts
 </body>
 
 </html>
