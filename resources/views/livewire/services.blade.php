@@ -1,5 +1,6 @@
+@include('livewire._create_service')
 @section('content')
-<div>
+<div class="main-content">
     <div class="page-content">
         <!-- start page title -->
         <div class="row">
@@ -8,27 +9,64 @@
                     <h4 class="page-title mb-0 font-size-18">SERVICES</h4>
 
                     <div class="page-title-right">
-                        <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Tables</a></li>
-                            <li class="breadcrumb-item active">Basic Tables</li>
-                        </ol>
                     </div>
 
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <button type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal"
+                        data-bs-target=".bs-example-modal-center">Center
+                        modal</button>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade bs-example-modal-center" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title mt-0">Center modal</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Ajouter un Nouveau Service</h4>
+                                        <form class="custom-validation" action="#">
+                                            <div class="mb-3">
+                                                <label class="form-label">Designation</label>
+                                                <input type="text" class="form-control" required
+                                                    placeholder="Type something" />
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Encronyme</label>
+                                                <input type="text" class="form-control" required
+                                                    placeholder="Type something" />
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+
         <!-- end page title -->
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Responsive tables</h4>
-                        <p class="card-title-desc">
-                            Create responsive tables by wrapping any <code>.table</code> in
-                            <code>.table-responsive</code> to make them scroll horizontally on small devices
-                            (under 768px).
-                        </p>
-
+                        <h4 class="card-title">Services</h4>
                         <div class="table-responsive">
                             <table class="table mb-0">
                                 <thead>
@@ -43,8 +81,6 @@
                                 <tbody>
                                     <tr>
                                         <th scope="row">1</th>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
                                         <td>Table cell</td>
                                         <td>Table cell</td>
                                         <td>Table cell</td>

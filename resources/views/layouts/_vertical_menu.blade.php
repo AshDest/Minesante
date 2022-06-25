@@ -24,7 +24,7 @@
                         <span>Accueil</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="index.html">Dashboard 1</a></li>
+                        <li><a href="/">Dashboard 1</a></li>
                         <li><a href="index-2.html">Dashboard 2</a></li>
                     </ul>
                 </li>
