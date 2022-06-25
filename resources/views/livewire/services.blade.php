@@ -1,8 +1,6 @@
 @extends('layouts.default')
 @section('content')
-<div class="main-content">
     <div class="page-content">
-
         <!-- start page title -->
         <div class="row">
             <div class="col-12">
@@ -28,7 +26,7 @@
         @if (session()->has('message'))
             <div class="alert alert-success">{{session('message')}}</div>
         @endif
-        <div wire:ignore.self class="modal fade bs-example-modal-center" id="addNewService" tabindex="-1" role="dialog"
+        <div class="modal fade bs-example-modal-center" id="addNewService" tabindex="-1" role="dialog"
             aria-labelledby="mySmallModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -42,7 +40,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h4 class="card-title">Ajouter un Nouveau Service</h4>
-                                        <form >
+                                        <form wire:submit.prevent="store">
                                             <div class="mb-3">
                                                 <label class="form-label">Designation</label>
                                                 <input type="text" name="designation" class="form-control" required
@@ -62,7 +60,7 @@
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">Fermer</button>
-                                                <button  class="btn btn-primary" wire:click="store">Ajouter</button>
+                                                <button  class="btn btn-primary">Ajouter</button>
                                             </div>
                                         </form>
                                     </div>
@@ -109,6 +107,5 @@
         <!-- end row -->
 
     </div>
-</div>
 
 @endsection
