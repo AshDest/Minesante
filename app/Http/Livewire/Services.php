@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Service;
+use Livewire\WithPagination;
 class Services extends Component
 {
     public $ids;
@@ -11,9 +12,14 @@ class Services extends Component
     public $encronyme;
 
 
+    use WithPagination;
     public function render()
     {
-        return view('livewire.services');
+        $searchTerm = '%'.$this->searchTerm . '%';
+        $services = Service::where('designation','LIKE',$searchTerm)
+                            ->orWhere('encronyme','LIKE',$searchTerm)
+                            ->orderBy('id','DESC')->paginate(5);
+        return view('livewire.services', ['services'=>$services]);
     }
 
     public function resetInputFields()

@@ -31,17 +31,8 @@
     @livewireScripts
     <!-- SCRIPTS OF ACTION MESSAGE-->
     <script>
-        window.livewire.on('StudentAdded',()=>{
+        window.livewire.on('ServiceAdded',()=>{
             $('#addStudentModal').modal('hide');
-        });
-        window.livewire.on('StudentUpdated',()=>{
-            $('#updateStudentModal').modal('hide');
-        });
-        window.livewire.on('fileUploaded',()=>{
-            $('#form-upload')[0].reset();
-        });
-        window.livewire.on('imagesUploaded',()=>{
-            $('#upload-images')[0].reset();
         });
     </script>
     <!-- SCRIPTS OF ACTION MESSAGE-->

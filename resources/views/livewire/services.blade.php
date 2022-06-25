@@ -18,11 +18,14 @@
                     <button type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal"
                         data-bs-target=".bs-example-modal-center">Ajouter un Service</button>
                 </div>
-                @if (session()->has('message'))
-                <div class="alert alert-success">{{session('message')}}</div>
-                @endif
+            </div>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" placeholder="Search..." wire:model="searchTerm" />
             </div>
         </div>
+        @if (session()->has('message'))
+            <div class="alert alert-success">{{session('message')}}</div>
+        @endif
         <div wire:ignore.self class="modal fade bs-example-modal-center" tabindex="-1" role="dialog"
             aria-labelledby="mySmallModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -71,7 +74,6 @@
             </div>
             <!-- /.modal-dialog -->
         </div>
-
         <!-- end page title -->
         <div class="row">
             <div class="col-lg-12">
@@ -83,25 +85,23 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>ID</th>
                                         <th>DESIGNATION</th>
                                         <th>ENCRONYME</th>
-                                        <th>ACTIONS</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($services as $service)
                                     <tr>
-                                        <th scope="row">1</th>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
-                                        <td>Table cell</td>
+                                        <th scope="row">{{$service->id}}</th>
+                                        <td>{{$service->designation}}</td>
+                                        <td>{{$service->encronyme}}</td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
-
                     </div>
+                    {{$services->links()}}
                 </div>
             </div>
         </div>
