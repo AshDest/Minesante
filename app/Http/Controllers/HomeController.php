@@ -30,4 +30,8 @@ class HomeController extends Controller
     {
         return view('toto');
     }
+    public function service()
+    {
+        return view('pages.service');
+    }
 }

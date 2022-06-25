@@ -18,11 +18,11 @@ use App\Http\Livewire\Toto;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/toto', [App\Http\Controllers\HomeController::class, 'toto'])->name('toto');
+Route::get('/services', [App\Http\Controllers\HomeController::class, 'service'])->name('service');
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/services', Services::class);
+//Route::get('/services', Services::class);
 //Route::get('/test', Toto::class);
 
