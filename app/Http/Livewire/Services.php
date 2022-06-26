@@ -23,7 +23,6 @@ class Services extends Component
             'designation' => 'required',
             'encronyme' => 'required'
         ]);
-        dd("fffff");
         Service::create($validatedData);
         session()->flash('message', 'Services created successfully');
         $this->resetInputFields();

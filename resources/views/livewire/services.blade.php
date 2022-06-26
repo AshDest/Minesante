@@ -39,22 +39,10 @@
                                     <div class="card-body">
                                         <h4 class="card-title">Ajouter un Nouveau Service</h4>
                                         <form wire:submit.prevent="store">
-                                            <div class="mb-3">
-                                                <label class="form-label">Designation</label>
-                                                <input type="text" name="designation" class="form-control" required
-                                                    wire:model='designation' placeholder="" />
-                                                @error('designation')
-                                                <span class="text-danger">{{$message}}</span>
-                                                @enderror
-                                            </div>
-                                            <div class="mb-3">
-                                                <label class="form-label">Encronyme</label>
-                                                <input type="text" name="encronyme" class="form-control" required
-                                                    wire:model='encronyme' placeholder="" />
-                                                @error('encronyme')
-                                                <span class="text-danger">{{$message}}</span>
-                                                @enderror
-                                            </div>
+                                            <label for="designation">Designation</label>
+                                            <input type="text" name="designation" class="form-control" wire:model='designation'>
+                                            <label for="encronyme">Encronyme</label>
+                                            <input type="text" name="encronyme" class="form-control" wire:model='encronyme'>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">Fermer</button>
@@ -71,6 +59,17 @@
             </div>
             <!-- /.modal-dialog -->
         </div>
+        <form wire:submit.prevent="store">
+            <label for="designation">Designation</label>
+            <input type="text" name="designation" class="form-control" wire:model='designation'>
+            <label for="encronyme">Encronyme</label>
+            <input type="text" name="encronyme" class="form-control" wire:model='encronyme'>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"
+                    data-bs-dismiss="modal">Fermer</button>
+                <button  class="btn btn-primary">Ajouter</button>
+            </div>
+        </form>
         <!-- end page title -->
         <div class="row">
             <div class="col-lg-12">
