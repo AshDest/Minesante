@@ -82,7 +82,7 @@
    <!-- SCRIPTS OF ACTION MESSAGE-->
    <script>
     window.livewire.on('ServiceAdded',()=>{
-        $('#addNewService').modal('hide');
+        $('#exampleModal').modal('hide');
     });
 </script>
 <!-- SCRIPTS OF ACTION MESSAGE-->
