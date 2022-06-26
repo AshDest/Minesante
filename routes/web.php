@@ -18,6 +18,7 @@ use App\Http\Livewire\Toto;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/toto', [App\Http\Controllers\HomeController::class, 'toto'])->name('toto');
 Route::get('/services', [App\Http\Controllers\HomeController::class, 'service'])->name('service');
 
 Auth::routes();

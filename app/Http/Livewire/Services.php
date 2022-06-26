@@ -19,7 +19,15 @@ class Services extends Component
     }
     public function store()
     {
+        $validatedData = $this->validate([
+            'designation' => 'required',
+            'encronyme' => 'required'
+        ]);
         dd("fffff");
+        Service::create($validatedData);
+        session()->flash('message', 'Services created successfully');
+        $this->resetInputFields();
+        $this->emit('ServiceAdded');
     }
 
     public function edit($id)
