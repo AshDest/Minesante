@@ -62,7 +62,7 @@ class Services extends Component
         $searchTerm = '%'.$this->searchTerm . '%';
         $services = Service::where('designation','LIKE',$searchTerm)
                             ->orWhere('encronyme','LIKE',$searchTerm)
-                            ->orderBy('id','DESC')->paginate(5);
+                            ->orderBy('id','ASC')->paginate(100);
         return view('livewire.services', ['services'=>$services]);
     }
 }
