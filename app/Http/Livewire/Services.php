@@ -54,6 +54,17 @@ class Services extends Component
             $this->resetInputFields();
             $this->emit('ServiceUpdated');
         }
+        else
+        {
+            $validatedDatas = $this->validate([
+                'designation' => 'required',
+                'encronyme' => 'required'
+            ]);
+            Service::create($validatedDatas);
+            session()->flash('message', 'Services created successfully');
+            $this->resetInputFields();
+            $this->emit('ServiceAdded');
+        }
     }
 
     public function delete($id)
