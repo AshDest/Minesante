@@ -17,13 +17,23 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <form class="needs-validation" novalidate>
+                    <form class="needs-validation" novalidate wire:submit.prevent="update">
                         <div class="row">
+                            <div class="col-md-12">
+                                <div class="mb-4">
+                                    <label class="form-label" for="validationCustom">Matricule</label>
+                                    <input type="text" class="form-control" id="validationCustom"
+                                     wire:model='matricule' name="matricule" required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                            </div>
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label class="form-label" for="validationCustom01">Nom</label>
                                     <input type="text" class="form-control" id="validationCustom01"
-                                        required>
+                                     wire:model='nom' name="nom" required>
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
@@ -33,7 +43,7 @@
                                 <div class="mb-3">
                                     <label class="form-label" for="validationCustom02">Postnom</label>
                                     <input type="text" class="form-control" id="validationCustom02"
-                                         required>
+                                     wire:model='postnom' name="postnom" required>
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
@@ -43,7 +53,7 @@
                                 <div class="mb-3">
                                     <label class="form-label" for="validationCustom02">Prenom</label>
                                     <input type="text" class="form-control" id="validationCustom02"
-                                         required>
+                                      wire:model='prenom' name="prenom" required>
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
@@ -54,10 +64,9 @@
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label class="form-label" for="validationCustom03">Sexe</label>
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>Select</option>
-                                        <option>Homme</option>
-                                        <option>Femme</option>
+                                    <select class="form-select" name="sexe" aria-label="Default select example" wire:model='sexe'>
+                                        <option value="Homme" selected>Homme</option>
+                                        <option value="Femme">Femme</option>
                                     </select>
                                     <div class="invalid-feedback">
                                         Please provide a valid city.
@@ -67,8 +76,8 @@
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label class="form-label" for="validationCustom04">Services</label>
-                                    <select class="form-select" aria-label="Default select example" wire:model='idService'>
-                                        <option selected>Select</option>
+                                    <select class="form-select" name="idService" aria-label="Default select example" wire:model='idService'>
+                                        <option selected value=""> --Select-- </option>
                                         @foreach ($services as $service)
                                             <option value="{{$service->id}}">{{$service->designation}}</option>
                                         @endforeach
@@ -78,14 +87,14 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12">
+                            <div class="col-md-4">
                                 <div class="mb-3">
                                     <div class="form-check">
-                                        <input type="checkbox" class="form-check-input"
-                                            id="invalidCheck" required>
-                                        <label class="form-check-label ms-1" for="invalidCheck">Signateur?</label>
+                                        <label class="form-label" for="validationCustom07">Signateur?</label>
+                                        <select class="form-select" name="signateur" aria-label="Default select example" wire:model='signateur'>
+                                            <option value="0" selected>Non Signateur</option>
+                                            <option value="1">Signateur</option>
+                                        </select>
                                         <div class="invalid-feedback">
                                             You must agree before submitting.
                                         </div>
