@@ -38,4 +38,8 @@ class HomeController extends Controller
     {
         return view('pages.province');
     }
+    public function partenaire()
+    {
+        return view('pages.partenaire');
+    }
 }

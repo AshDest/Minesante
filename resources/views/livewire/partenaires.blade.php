@@ -22,7 +22,7 @@
                             <label for="example-text-input" class="col-md-2 col-form-label">Code Province</label>
                             <div class="col-md-10">
                                 <input class="form-control" type="text"
-                                    id="example-text-input" name="designation" wire:model='code'>
+                                    id="example-text-input" name="designation" wire:model='designation'>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -53,7 +53,7 @@
                             @foreach ($partenaires as $partenaire)
                             <tr>
                                 <th scope="row">{{$partenaire->id}}</th>
-                                <td>{{$partenaire->code}}</td>
+                                <td>{{$partenaire->designation}}</td>
                                 <td>
                                     <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#updateModal" wire:click.prevent="edit({{$partenaire->id}})">Edit</button>
                                     <button type="button" class="btn btn-danger" wire:click.prevent="delete({{$partenaire->id}})">Delete</button>

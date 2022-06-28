@@ -87,7 +87,7 @@
                 </li>
 
                 <li>
-                    <a href="/provinces" class=" waves-effect">
+                    <a href="/partenaires" class=" waves-effect">
                         <i class="mdi mdi-account-circle-outline"></i>
                         <span>Partenaires</span>
                     </a>

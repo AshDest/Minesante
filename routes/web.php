@@ -21,6 +21,7 @@ Route::get('/', function () {
 Route::get('/toto', [App\Http\Controllers\HomeController::class, 'toto'])->name('toto');
 Route::get('/services', [App\Http\Controllers\HomeController::class, 'service'])->name('service');
 Route::get('/provinces', [App\Http\Controllers\HomeController::class, 'province'])->name('province');
+Route::get('/partenaires', [App\Http\Controllers\HomeController::class, 'partenaire'])->name('partenaire');
 
 
 Auth::routes();

@@ -38,7 +38,6 @@ class Partenaires extends Component
             ]);
             session()->flash('message', 'Partenaire updated Successfully');
             $this->resetInputFields();
-            $this->emit('PartenaireUpdate');
         }
         else
         {
@@ -48,7 +47,6 @@ class Partenaires extends Component
             Partenaire::create($validatedDatas);
             session()->flash('message', 'Partenaire Created Successfully');
             $this->resetInputFields();
-            $this->emit('PartenaireAdded');
         }
     }
 
