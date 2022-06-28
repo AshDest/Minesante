@@ -22,6 +22,7 @@ Route::get('/toto', [App\Http\Controllers\HomeController::class, 'toto'])->name(
 Route::get('/services', [App\Http\Controllers\HomeController::class, 'service'])->name('service');
 Route::get('/provinces', [App\Http\Controllers\HomeController::class, 'province'])->name('province');
 Route::get('/partenaires', [App\Http\Controllers\HomeController::class, 'partenaire'])->name('partenaire');
+Route::get('/agents', [App\Http\Controllers\HomeController::class, 'agent'])->name('agents');
 
 
 Auth::routes();

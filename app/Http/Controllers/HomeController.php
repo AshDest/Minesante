@@ -42,4 +42,8 @@ class HomeController extends Controller
     {
         return view('pages.partenaire');
     }
+    public function agent()
+    {
+        return view('pages.agent');
+    }
 }
