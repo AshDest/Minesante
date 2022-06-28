@@ -79,10 +79,7 @@ class Services extends Component
     use WithPagination;
     public function render()
     {
-        $searchTerm = '%'.$this->searchTerm . '%';
-        $services = Service::where('designation','LIKE',$searchTerm)
-                            ->orWhere('encronyme','LIKE',$searchTerm)
-                            ->orderBy('id','ASC')->paginate(100);
+        $services = Service::orderBy('id','ASC')->paginate(100);
         return view('livewire.services', ['services'=>$services]);
     }
 }
