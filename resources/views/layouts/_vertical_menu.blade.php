@@ -54,13 +54,13 @@
                     </a>
                 </li>
 
+                <li class="menu-title">Parametre</li>
                 <li>
                     <a href="/partenaires" class=" waves-effect">
                         <i class="mdi mdi-account-circle-outline"></i>
                         <span>Partenaires</span>
                     </a>
                 </li>
-                <li class="menu-title">Parametre</li>
                 <li>
                     <a href="/services" class=" waves-effect">
                         <i class="mdi mdi-calendar-text"></i>
