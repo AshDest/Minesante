@@ -52,7 +52,32 @@ class Agents extends Component
         ]);
         if($this->ids)
         {
-
+            $agent = Agent::find($this->ids);
+            $agent->update([
+                'matricule' => $this->matricule,
+                'nom' => $this->nom,
+                'postnom' => $this->postnom,
+                'prenom' => $this->prenom,
+                'sexe' => $this->sexe,
+                'service_id' => $this->idService,
+                'signateur' => $this->signateur
+            ]);
+            session()->flash('message', 'Agent updated Successfully');
+            $this->resetInputFields();
+        }
+        else
+        {
+            $validatedDatas = $this->validate([
+                'matricule' => 'required',
+                'nom' => 'required',
+                'postnom' => 'required',
+                'prenom' => 'required',
+                'sexe' => 'required',
+                'idService' => 'required',
+                'signateur' => 'required'
+            ]);
+            Agent::create($validatedDatas);
+            session()->flash('message', 'Agent created Successfully');
         }
     }
 
