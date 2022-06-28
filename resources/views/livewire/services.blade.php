@@ -50,7 +50,7 @@
                                 <td>{{$service->encronyme}}</td>
                                 <td>
                                     <button type="button" class="btn btn-info">Edit</button>
-                                    <button type="button" class="btn btn-danger">Delete</button>
+                                    <button type="button" class="btn btn-danger" wire:click.prevent="delete({{$service->id}})">Delete</button>
                                 </td>
                             </tr>
                             @endforeach

@@ -56,6 +56,15 @@ class Services extends Component
         }
     }
 
+    public function delete($id)
+    {
+        if($id)
+        {
+            Service::where('id',$id)->delete();
+            session()->flash('message', 'Service deleted successfully');
+        }
+    }
+
     use WithPagination;
     public function render()
     {
