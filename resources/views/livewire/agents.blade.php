@@ -17,16 +17,13 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <form class="needs-validation" novalidate wire:submit.prevent="update">
+                    <form wire:submit.prevent="update">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="mb-4">
                                     <label class="form-label" for="validationCustom">Matricule</label>
                                     <input type="text" class="form-control" id="validationCustom"
                                      wire:model='matricule' name="matricule" required>
-                                    <div class="valid-feedback">
-                                        Looks good!
-                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -34,9 +31,6 @@
                                     <label class="form-label" for="validationCustom01">Nom</label>
                                     <input type="text" class="form-control" id="validationCustom01"
                                      wire:model='nom' name="nom" required>
-                                    <div class="valid-feedback">
-                                        Looks good!
-                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -44,9 +38,6 @@
                                     <label class="form-label" for="validationCustom02">Postnom</label>
                                     <input type="text" class="form-control" id="validationCustom02"
                                      wire:model='postnom' name="postnom" required>
-                                    <div class="valid-feedback">
-                                        Looks good!
-                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -54,9 +45,6 @@
                                     <label class="form-label" for="validationCustom02">Prenom</label>
                                     <input type="text" class="form-control" id="validationCustom02"
                                       wire:model='prenom' name="prenom" required>
-                                    <div class="valid-feedback">
-                                        Looks good!
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -68,23 +56,17 @@
                                         <option value="Homme" selected>Homme</option>
                                         <option value="Femme">Femme</option>
                                     </select>
-                                    <div class="invalid-feedback">
-                                        Please provide a valid city.
-                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label class="form-label" for="validationCustom04">Services</label>
-                                    <select class="form-select" name="idService" aria-label="Default select example" wire:model='idService'>
+                                    <select class="form-select" name="service_id" aria-label="Default select example" wire:model='service_id'>
                                         <option selected value=""> --Select-- </option>
                                         @foreach ($services as $service)
                                             <option value="{{$service->id}}">{{$service->designation}}</option>
                                         @endforeach
                                     </select>
-                                    <div class="invalid-feedback">
-                                        Please provide a valid state.
-                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -95,40 +77,17 @@
                                             <option value="0" selected>Non Signateur</option>
                                             <option value="1">Signateur</option>
                                         </select>
-                                        <div class="invalid-feedback">
-                                            You must agree before submitting.
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-primary" type="submit">Enregistrer</button>
+                        <button class="btn btn-primary">Enregistrer</button>
                     </form>
                 </div>
             </div>
             <!-- end card -->
         </div>
         <!-- end col -->
-        <!--
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body">
-                    <form wire:submit.prevent="update">
-                        <div class="mb-3 row">
-                            <label for="example-text-input" class="col-md-2 col-form-label">Code Province</label>
-                            <div class="col-md-10">
-                                <input class="form-control" type="text"
-                                    id="example-text-input" name="designation" wire:model='designation'>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button class="btn btn-primary">Enregistrer</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-     -->
     </div>
     <div class="row">
         <div class="col-lg-12">
@@ -160,7 +119,7 @@
                                 <td>{{$agent->postnom}}</td>
                                 <td>{{$agent->prenom}}</td>
                                 <td>{{$agent->sexe}}</td>
-                                <td>{{$agent->service_id}}</td>
+                                <td>{{$agent->designation}}</td>
                                 <td>{{$agent->signateur}}</td>
                                 <td>
                                     <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#updateModal" wire:click.prevent="edit({{$agent->id}})">Edit</button>

@@ -10,7 +10,7 @@ use Livewire\WithPagination;
 class Agents extends Component
 {
     public $ids;
-    public $idService;
+    public $service_id;
     public $matricule;
     public $nom;
     public $postnom;
@@ -35,7 +35,7 @@ class Agents extends Component
         $this->postnom = $agent->postnom;
         $this->prenom = $agent->prenom;
         $this->sexe = $agent->sexe;
-        $this->idService = $agent->service_id;
+        $this->service_id = $agent->service_id;
         $this->signateur = $agent->signateur;
     }
 
@@ -47,7 +47,7 @@ class Agents extends Component
             'postnom' => 'required',
             'prenom' => 'required',
             'sexe' => 'required',
-            'idService' => 'required',
+            'service_id' => 'required',
             'signateur' => 'required'
         ]);
         if($this->ids)
@@ -59,7 +59,7 @@ class Agents extends Component
                 'postnom' => $this->postnom,
                 'prenom' => $this->prenom,
                 'sexe' => $this->sexe,
-                'service_id' => $this->idService,
+                'service_id' => $this->service_id,
                 'signateur' => $this->signateur
             ]);
             session()->flash('message', 'Agent updated Successfully');
@@ -73,18 +73,19 @@ class Agents extends Component
                 'postnom' => 'required',
                 'prenom' => 'required',
                 'sexe' => 'required',
-                'idService' => 'required',
+                'service_id' => 'required',
                 'signateur' => 'required'
             ]);
             Agent::create($validatedDatas);
             session()->flash('message', 'Agent created Successfully');
+            $this->resetInputFields();
         }
     }
 
     use WithPagination;
     public function render()
     {
-        $agents = Agent::orderBy('nom', 'ASC')->paginate(10);
+        $agents = Agent::orderBy('nom', 'ASC')->join('services', 'services.id','=','agents.service_id')->get();
         $services = Service::orderBy('designation')->get();
         return view('livewire.agents', ['agents'=>$agents], ['services'=>$services]);
     }

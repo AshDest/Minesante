@@ -23,10 +23,6 @@
                         <i class="mdi mdi-airplay"></i><span class="badge rounded-pill bg-info float-end">2</span>
                         <span>Accueil</span>
                     </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="/">Dashboard 1</a></li>
-                        <li><a href="index-2.html">Dashboard 2</a></li>
-                    </ul>
                 </li>
 
                 <li>
@@ -34,25 +30,6 @@
                         <i class="mdi mdi-flip-horizontal"></i>
                         <span>Layouts</span>
                     </a>
-                    <ul class="sub-menu" aria-expanded="true">
-                        <li><a href="javascript: void(0);" class="has-arrow">Vertical</a>
-                            <ul class="sub-menu" aria-expanded="true">
-                                <li><a href="layouts-compact-sidebar.html">Compact Sidebar</a></li>
-                                <li><a href="layouts-icon-sidebar.html">Icon Sidebar</a></li>
-                                <li><a href="layouts-boxed.html">Boxed Layout</a></li>
-                                <li><a href="layouts-preloader.html">Preloader</a></li>
-                            </ul>
-                        </li>
-
-                        <li><a href="javascript: void(0);" class="has-arrow">Horizontal</a>
-                            <ul class="sub-menu" aria-expanded="true">
-                                <li><a href="layouts-horizontal.html">Horizontal</a></li>
-                                <li><a href="layouts-hori-topbarlight.html">Topbar Light</a></li>
-                                <li><a href="layouts-hori-boxed.html">Boxed Layout</a></li>
-                                <li><a href="layouts-hori-preloader.html">Preloader</a></li>
-                            </ul>
-                        </li>
-                    </ul>
 
                 </li>
 
@@ -68,10 +45,6 @@
                         <i class="mdi mdi-inbox-full"></i>
                         <span>Email</span>
                     </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="email-inbox.html">Inbox</a></li>
-                        <li><a href="email-read.html">Read Email</a></li>
-                    </ul>
                 </li>
 
                 <li>
@@ -79,11 +52,6 @@
                         <i class="mdi mdi-calendar-check"></i>
                         <span>Tasks</span>
                     </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="tasks-list.html">Task List</a></li>
-                        <li><a href="tasks-kanban.html">Kanban Board</a></li>
-                        <li><a href="tasks-create.html">Create Task</a></li>
-                    </ul>
                 </li>
 
                 <li>
@@ -97,6 +65,12 @@
                     <a href="/services" class=" waves-effect">
                         <i class="mdi mdi-calendar-text"></i>
                         <span>Services</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/agents" class=" waves-effect">
+                        <i class="mdi mdi-account-circle-outline"></i>
+                        <span>Agents</span>
                     </a>
                 </li>
                 <li>
