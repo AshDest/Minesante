@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Agent;
+use App\Models\Service;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -26,6 +27,7 @@ class Agents extends Component
     public function render()
     {
         $agents = Agent::orderBy('nom', 'ASC')->paginate(10);
-        return view('livewire.agents', ['agents'=>$agents]);
+        $services = Service::orderBy('designation');
+        return view('livewire.agents', ['agents'=>$agents], ['services'=>$services]);
     }
 }

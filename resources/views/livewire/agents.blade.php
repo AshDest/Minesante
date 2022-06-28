@@ -17,27 +17,33 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Bootstrap Validation - Normal</h4>
-                    <p class="card-title-desc">Provide valuable, actionable feedback to your users with
-                        HTML5 form validation–available in all our supported browsers.</p>
                     <form class="needs-validation" novalidate>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="mb-3">
-                                    <label class="form-label" for="validationCustom01">First
-                                        name</label>
+                                    <label class="form-label" for="validationCustom01">Nom</label>
                                     <input type="text" class="form-control" id="validationCustom01"
-                                        placeholder="First name" value="Mark" required>
+                                        required>
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="mb-3">
-                                    <label class="form-label" for="validationCustom02">Last name</label>
+                                    <label class="form-label" for="validationCustom02">Postnom</label>
                                     <input type="text" class="form-control" id="validationCustom02"
-                                        placeholder="Last name" value="Otto" required>
+                                         required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label" for="validationCustom02">Prenom</label>
+                                    <input type="text" class="form-control" id="validationCustom02"
+                                         required>
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
@@ -47,9 +53,12 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="mb-3">
-                                    <label class="form-label" for="validationCustom03">City</label>
-                                    <input type="text" class="form-control" id="validationCustom03"
-                                        placeholder="City" required>
+                                    <label class="form-label" for="validationCustom03">Sexe</label>
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>Select</option>
+                                        <option>Homme</option>
+                                        <option>Femme</option>
+                                    </select>
                                     <div class="invalid-feedback">
                                         Please provide a valid city.
                                     </div>
@@ -57,21 +66,15 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="mb-3">
-                                    <label class="form-label" for="validationCustom04">State</label>
-                                    <input type="text" class="form-control" id="validationCustom04"
-                                        placeholder="State" required>
+                                    <label class="form-label" for="validationCustom04">Services</label>
+                                    <select class="form-select" aria-label="Default select example" wire:model='idService'>
+                                        <option selected>Select</option>
+                                        @foreach ($services as $service)
+                                            <option value="{{$service->id}}">{{$service->designation}}</option>
+                                        @endforeach
+                                    </select>
                                     <div class="invalid-feedback">
                                         Please provide a valid state.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label class="form-label" for="validationCustom05">Zip</label>
-                                    <input type="text" class="form-control" id="validationCustom05"
-                                        placeholder="Zip" required>
-                                    <div class="invalid-feedback">
-                                        Please provide a valid zip.
                                     </div>
                                 </div>
                             </div>
@@ -82,8 +85,7 @@
                                     <div class="form-check">
                                         <input type="checkbox" class="form-check-input"
                                             id="invalidCheck" required>
-                                        <label class="form-check-label ms-1" for="invalidCheck">Agree to
-                                            terms and conditions</label>
+                                        <label class="form-check-label ms-1" for="invalidCheck">Signateur?</label>
                                         <div class="invalid-feedback">
                                             You must agree before submitting.
                                         </div>
@@ -91,7 +93,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-primary" type="submit">Submit form</button>
+                        <button class="btn btn-primary" type="submit">Enregistrer</button>
                     </form>
                 </div>
             </div>
