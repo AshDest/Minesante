@@ -20,6 +20,8 @@ Route::get('/', function () {
 });
 Route::get('/toto', [App\Http\Controllers\HomeController::class, 'toto'])->name('toto');
 Route::get('/services', [App\Http\Controllers\HomeController::class, 'service'])->name('service');
+Route::get('/provinces', [App\Http\Controllers\HomeController::class, 'province'])->name('province');
+
 
 Auth::routes();
 

@@ -44,13 +44,33 @@ class Provinces extends Component
             $this->resetInputFields();
             $this->emit('ProvinceUpdate');
         }
+        else
+        {
+            $validatedDatas = $this->validate([
+                'code' => 'required',
+                'designation' => 'required'
+            ]);
+            Province::create($validatedDatas);
+            session()->flash('message', 'Province Created Successfully');
+            $this->resetInputFields();
+            $this->emit('ProvinceAdded');
+        }
+    }
+
+    public function delete($id)
+    {
+        if($id)
+        {
+            Province::where('id',$id)->delete();
+            session()->flash('message', 'Province deleted successfully');
+        }
     }
 
 
     use WithPagination;
     public function render()
     {
-        $provinces = Service::orderBy('designation', 'ASC')->paginate(10);
+        $provinces = Province::orderBy('designation', 'ASC')->paginate(10);
         return view('livewire.provinces', ['provinces'=>$provinces]);
     }
 }

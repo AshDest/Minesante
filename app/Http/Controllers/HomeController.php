@@ -34,4 +34,8 @@ class HomeController extends Controller
     {
         return view('pages.service');
     }
+    public function province()
+    {
+        return view('pages.province');
+    }
 }

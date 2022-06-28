@@ -77,6 +77,9 @@
     window.livewire.on('ServiceAdded',()=>{
         $('#exampleModal').modal('hide');
     });
+    window.livewire.on('ServiceAdded',()=>{
+        $('#exampleModal').modal('hide');
+    });
 </script>
 <!-- SCRIPTS OF ACTION MESSAGE-->
 <!-- JAVASCRIPT -->

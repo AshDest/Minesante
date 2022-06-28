@@ -116,6 +116,12 @@
                         <span>Services</span>
                     </a>
                 </li>
+                <li>
+                    <a href="/provinces" class=" waves-effect">
+                        <i class="mdi mdi-calendar-text"></i>
+                        <span>Provinces</span>
+                    </a>
+                </li>
             </ul>
         </div>
         <!-- Sidebar -->
