@@ -2,8 +2,11 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Partenaire;
+use App\Models\Province;
 use App\Models\ReferencesTerme;
 use Livewire\Component;
+use App\Models\Service;
 
 class TermsRefs extends Component
 {
@@ -18,6 +21,12 @@ class TermsRefs extends Component
     public $province_id;
     public $signateur;
     public $user_id;
+
+    //testing selection
+    //public $selectedPartener = null;
+    public $partenaires;
+    public $services;
+    public $provinces;
 
     public function resetInputFields()
     {
@@ -106,6 +115,11 @@ class TermsRefs extends Component
         }
     }
 
+    public function mount(){
+        $this->partenaires = Partenaire::all();
+        $this->services = Service::orderBy('designation')->get();
+        $this->provinces = Province::orderBy('designation')->get();
+    }
     public function render()
     {
         return view('livewire.terms-refs');
