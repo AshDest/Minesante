@@ -23,6 +23,7 @@ Route::get('/services', [App\Http\Controllers\HomeController::class, 'service'])
 Route::get('/provinces', [App\Http\Controllers\HomeController::class, 'province'])->name('province');
 Route::get('/partenaires', [App\Http\Controllers\HomeController::class, 'partenaire'])->name('partenaire');
 Route::get('/agents', [App\Http\Controllers\HomeController::class, 'agent'])->name('agents');
+Route::get('/terme-refs', [App\Http\Controllers\HomeController::class, 'reference_term'])->name('reference_term');
 
 
 Auth::routes();

@@ -19,7 +19,7 @@
                 <div class="card-body">
                     <form wire:submit.prevent="update">
                         <div class="mb-3 row">
-                            <label for="example-text-input" class="col-md-2 col-form-label">Code Province</label>
+                            <label for="example-text-input" class="col-md-2 col-form-label">Nommination</label>
                             <div class="col-md-10">
                                 <input class="form-control" type="text"
                                     id="example-text-input" name="designation" wire:model='designation'>

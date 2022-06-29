@@ -46,4 +46,8 @@ class HomeController extends Controller
     {
         return view('pages.agent');
     }
+    public function reference_term()
+    {
+        return view('pages.terms-ref');
+    }
 }

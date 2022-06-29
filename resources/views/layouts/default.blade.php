@@ -31,7 +31,7 @@
         <div id="layout-wrapper">
 
             @include('layouts._top_bar')
-             <!-- ========== Left Sidebar Start ========== -->
+            <!-- ========== Left Sidebar Start ========== -->
             @include('layouts._vertical_menu')
             <!-- Left Sidebar End -->
 
@@ -40,16 +40,18 @@
             <!-- ============================================================== -->
             <div class="main-content">
 
-                    <!-- start page title -->
-                        @yield('content')
-                    <!-- end page title -->
+                <!-- start page title -->
+                @yield('content')
+                <!-- end page title -->
                 <!-- End Page-content -->
 
                 <footer class="footer">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm-6">
-                                <script>document.write(new Date().getFullYear())</script>
+                                <script>
+                                    document.write(new Date().getFullYear())
+                                </script>
                             </div>
                             <div class="col-sm-6">
                                 <div class="text-sm-end d-none d-sm-block">
@@ -72,61 +74,74 @@
 
     <!-- JAVASCRIPT -->
     <!-- JAVASCRIPT -->
-   <!-- SCRIPTS OF ACTION MESSAGE-->
-   <script>
-    window.livewire.on('ServiceAdded',()=>{
+    <!-- SCRIPTS OF ACTION MESSAGE-->
+    <script>
+        window.livewire.on('ServiceAdded',()=>{
         $('#exampleModal').modal('hide');
     });
     window.livewire.on('ServiceAdded',()=>{
         $('#exampleModal').modal('hide');
     });
-</script>
-<!-- SCRIPTS OF ACTION MESSAGE-->
-<!-- JAVASCRIPT -->
-<script src="{{ asset('assets/libs/jquery/jquery.min.js') }}"></script>
-<script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('assets/libs/metismenu/metisMenu.min.js') }}"></script>
-<script src="{{ asset('assets/libs/simplebar/simplebar.min.js') }}"></script>
-<script src="{{ asset('assets/libs/node-waves/waves.min.js') }}"></script>
-<script src="{{ asset('assets/libs/jquery-sparkline/jquery.sparkline.min.js') }}"></script>
+    </script>
+    <!-- SCRIPTS OF ACTION MESSAGE-->
+    <!-- JAVASCRIPT -->
+    <script src="{{ asset('assets/libs/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/metismenu/metisMenu.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/simplebar/simplebar.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/node-waves/waves.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/jquery-sparkline/jquery.sparkline.min.js') }}"></script>
 
-<!-- Table Editable plugin -->
-<script src="{{ asset('assets/libs/table-edits/build/table-edits.min.js') }}"></script>
+    <!-- Table Editable plugin -->
+    <script src="{{ asset('assets/libs/table-edits/build/table-edits.min.js') }}"></script>
 
-<script src="{{ asset('assets/js/pages/table-editable.int.js') }}"></script>
+    <script src="{{ asset('assets/js/pages/table-editable.int.js') }}"></script>
 
-<!-- Buttons examples -->
-<script src="{{ asset('assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
-<script src="{{ asset('assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js') }}"></script>
-<script src="{{ asset('assets/libs/jszip/jszip.min.js') }}"></script>
-<script src="{{ asset('assets/libs/pdfmake/build/pdfmake.min.js') }}"></script>
-<script src="{{ asset('assets/libs/pdfmake/build/vfs_fonts.js') }}"></script>
-<script src="{{ asset('assets/libs/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
-<script src="{{ asset('assets/libs/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
-<script src="{{ asset('assets/libs/datatables.net-buttons/js/buttons.colVis.min.js') }}"></script>
-<!-- Responsive examples -->
-<script src="{{ asset('assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
-<script src="{{ asset('assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js') }}"></script>
+    <!-- Buttons examples -->
+    <script src="{{ asset('assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/jszip/jszip.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/pdfmake/build/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/pdfmake/build/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('assets/libs/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/datatables.net-buttons/js/buttons.colVis.min.js') }}"></script>
+    <!-- Responsive examples -->
+    <script src="{{ asset('assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js') }}"></script>
 
-<!-- Datatable init js -->
-<script src="{{ asset('assets/js/pages/datatables.init.js') }}"></script>
+    <!-- Datatable init js -->
+    <script src="{{ asset('assets/js/pages/datatables.init.js') }}"></script>
 
 
-<!-- Required datatable js -->
-<script src="{{ asset('assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-<script src="{{ asset('assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <!-- Required datatable js -->
+    <script src="{{ asset('assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
 
-<!-- apexcharts -->
-<script src="{{ asset('assets/libs/apexcharts/apexcharts.min.js') }}"></script>
+    <!-- apexcharts -->
+    <script src="{{ asset('assets/libs/apexcharts/apexcharts.min.js') }}"></script>
 
-<!-- jquery.vectormap map -->
-<script src="{{ asset('assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js') }}"></script>
-<script src="{{ asset('assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-us-merc-en.js') }}"></script>
+    <!-- jquery.vectormap map -->
+    <script src="{{ asset('assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-us-merc-en.js') }}">
+    </script>
 
-<script src="{{ asset('assets/js/pages/dashboard.init.js') }}"></script>
-<!-- App js -->
-<script src="{{ asset('assets/js/app.js') }}"></script>
-@livewireScripts
+    <script src="{{ asset('assets/js/pages/dashboard.init.js') }}"></script>
+
+    <!-- bootstrap datepicker -->
+    <script src="{{ asset('assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+
+    <!--tinymce js-->
+    <script src="{{ asset('assets/libs/tinymce/tinymce.min.js') }}"></script>
+
+    <!-- form repeater js -->
+    <script src="{{ asset('assets/libs/jquery.repeater/jquery.repeater.min.js') }}"></script>
+
+    <script src="{{ asset('assets/js/pages/task-create.init.js') }}"></script>
+
+    <!-- App js -->
+    <script src="{{ asset('assets/js/app.js') }}"></script>
+    @livewireScripts
 
 </body>
 
