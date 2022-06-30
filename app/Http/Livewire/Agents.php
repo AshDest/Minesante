@@ -67,16 +67,7 @@ class Agents extends Component
         }
         else
         {
-            $validatedDatas = $this->validate([
-                'matricule' => 'required',
-                'nom' => 'required',
-                'postnom' => 'required',
-                'prenom' => 'required',
-                'sexe' => 'required',
-                'service_id' => 'required',
-                'signateur' => 'required'
-            ]);
-            Agent::create($validatedDatas);
+            Agent::create($validatedData);
             session()->flash('message', 'Agent created Successfully');
             $this->resetInputFields();
         }

@@ -113,6 +113,10 @@
     <!-- Datatable init js -->
     <script src="{{ asset('assets/js/pages/datatables.init.js') }}"></script>
 
+    <!-- form mask -->
+    <script src="{{ asset('assets/libs/inputmask/min/jquery.inputmask.bundle.min.js') }}"></script>
+    <!-- form mask init -->
+    <script src="{{ asset('assets/js/pages/form-mask.init.js') }}"></script>
 
     <!-- Required datatable js -->
     <script src="{{ asset('assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>

@@ -2,7 +2,9 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Agent;
 use App\Models\Partenaire;
+use App\Models\Participant;
 use App\Models\Province;
 use App\Models\ReferencesTerme;
 use Livewire\Component;
@@ -10,12 +12,13 @@ use App\Models\Service;
 
 class TermsRefs extends Component
 {
+    public $ids;
     public $reference;
     public $service_id;
     public $objet;
     public $date_dep;
     public $date_ret;
-    public $moyen_trans;
+    public $moyen_transp;
     public $partenaire_id;
     public $lieu;
     public $province_id;
@@ -27,6 +30,11 @@ class TermsRefs extends Component
     public $partenaires;
     public $services;
     public $provinces;
+    public $agents;
+
+    //declaration of participants
+    public $agent_id;
+    public $reference_id;
 
     public function resetInputFields()
     {
@@ -35,12 +43,17 @@ class TermsRefs extends Component
         $this->objet = '';
         $this->date_dep = '';
         $this->date_ret = '';
-        $this->moyen_trans = '';
+        $this->moyen_transp = '';
         $this->partenaire_id = '';
         $this->lieu = '';
         $this->province_id = '';
         $this->signateur = '';
         $this->user_id = '';
+    }
+
+    public function resetInputAgentFields()
+    {
+        $this->agent_id = '';
     }
 
     public function edit($ids)
@@ -52,7 +65,7 @@ class TermsRefs extends Component
         $this->objet = $term_ref->objet;
         $this->date_dep = $term_ref->date_dep;
         $this->date_ret = $term_ref->date_ret;
-        $this->moyen_trans = $term_ref->moyen_trans;
+        $this->moyen_transp = $term_ref->moyen_transp;
         $this->partenaire_id = $term_ref->partenaire_id;
         $this->lieu = $term_ref->lieu;
         $this->province_id = $term_ref->province_id;
@@ -68,12 +81,12 @@ class TermsRefs extends Component
             'objet' => 'required',
             'date_dep' => 'required',
             'date_ret' => 'required',
-            'moyen_trans' => 'required',
+            'moyen_transp' => 'required',
             'partenaire_id' => 'required',
             'lieu' => 'required',
             'province_id' => 'required',
             'signateur' => 'required',
-            'user_id' => 'required',
+            //'user_id' => 'required',
         ]);
         if($this->ids)
         {
@@ -84,41 +97,67 @@ class TermsRefs extends Component
                 'objet' => $this->objet,
                 'date_dep' => $this->date_dep,
                 'date_ret' => $this->date_ret,
-                'moyen_trans' => $this->moyen_trans,
+                'moyen_transp' => $this->moyen_transp,
                 'partenaire_id' => $this->partenaire_id,
                 'lieu' => $this->lieu,
                 'province_id' => $this->partenaire_id,
                 'signateur' => $this->signateur,
-                'user_id' => $this->user_id,
+                //'user_id' => $this->user_id,
             ]);
             session()->flash('message', 'Termes updated Successfully');
             $this->resetInputFields();
         }
         else
         {
-            $validatedDatas = $this->validate([
-                'reference' => 'required',
-                'service_id' => 'required',
-                'objet' => 'required',
-                'date_dep' => 'required',
-                'date_ret' => 'required',
-                'moyen_trans' => 'required',
-                'partenaire_id' => 'required',
-                'lieu' => 'required',
-                'province_id' => 'required',
-                'signateur' => 'required',
-                'user_id' => 'required',
-            ]);
-            ReferencesTerme::create($validatedDatas);
+            ReferencesTerme::create($validatedData);
             session()->flash('message', 'Terms created Successfully');
             $this->resetInputFields();
         }
+    }
+
+    public function editParticipant($idPs)
+    {
+        $participant = Participant::where('id',$idPs)->find();
+        $this->idPs = $participant->id;
+        $this->reference_id = $participant->reference_id;
+        $this->agent_id = $participant->agent_id;
+    }
+
+    public function update_participant()
+    {
+        $validatedData = $this->validate([
+            'reference_id' => 'required',
+            'agent_id' => 'required',
+        ]);
+        if($this->idPs)
+        {
+            $participant = Participant::find($this->idPs);
+            $participant->update([
+                'reference_id' => $this->reference_id,
+                'agent_id' => $this->agent_id
+            ]);
+            session()->flash('message', 'Agent updated successfully');
+            $this->resetInputAgentFields();
+        }
+        else
+        {
+            Participant::create($validatedData);
+            session()->flash('message', 'Agent added successfully');
+            $this->resetInputAgentFields();
+        }
+    }
+
+    public function saveAll()
+    {
+        $this->update();
+        $this->update_participant();
     }
 
     public function mount(){
         $this->partenaires = Partenaire::all();
         $this->services = Service::orderBy('designation')->get();
         $this->provinces = Province::orderBy('designation')->get();
+        $this->agents = Agent::all();
     }
     public function render()
     {

@@ -17,7 +17,7 @@ class ReferencesTerme extends Model
         'objet',
         'date_dep',
         'date_ret',
-        'moyen_trans',
+        'moyen_transp',
         'partenaire_id',
         'lieu',
         'province_id',

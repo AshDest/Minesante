@@ -24,6 +24,9 @@
                                     <label class="form-label" for="validationCustom">Matricule</label>
                                     <input type="text" class="form-control" id="validationCustom"
                                      wire:model='matricule' name="matricule" required>
+                                     @error('matricule')
+                                     <span class="text-danger">{{$message}}</span>
+                                     @enderror
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -31,6 +34,9 @@
                                     <label class="form-label" for="validationCustom01">Nom</label>
                                     <input type="text" class="form-control" id="validationCustom01"
                                      wire:model='nom' name="nom" required>
+                                     @error('nom')
+                                     <span class="text-danger">{{$message}}</span>
+                                     @enderror
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -38,6 +44,9 @@
                                     <label class="form-label" for="validationCustom02">Postnom</label>
                                     <input type="text" class="form-control" id="validationCustom02"
                                      wire:model='postnom' name="postnom" required>
+                                     @error('postnom')
+                                     <span class="text-danger">{{$message}}</span>
+                                     @enderror
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -45,6 +54,9 @@
                                     <label class="form-label" for="validationCustom02">Prenom</label>
                                     <input type="text" class="form-control" id="validationCustom02"
                                       wire:model='prenom' name="prenom" required>
+                                      @error('prenom')
+                                      <span class="text-danger">{{$message}}</span>
+                                      @enderror
                                 </div>
                             </div>
                         </div>
@@ -53,9 +65,13 @@
                                 <div class="mb-3">
                                     <label class="form-label" for="validationCustom03">Sexe</label>
                                     <select class="form-select" name="sexe" aria-label="Default select example" wire:model='sexe'>
+                                        <option value="" selected>-- Select Sexe --</option>
                                         <option value="Homme" selected>Homme</option>
                                         <option value="Femme">Femme</option>
                                     </select>
+                                    @error('sexe')
+                                    <span class="text-danger">{{$message}}</span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -67,6 +83,9 @@
                                             <option value="{{$service->id}}">{{$service->designation}}</option>
                                         @endforeach
                                     </select>
+                                    @error('service_id')
+                                    <span class="text-danger">{{$message}}</span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -77,6 +96,9 @@
                                             <option value="0" selected>Non Signateur</option>
                                             <option value="1">Signateur</option>
                                         </select>
+                                        @error('signateur')
+                                        <span class="text-danger">{{$message}}</span>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
