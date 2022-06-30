@@ -161,6 +161,10 @@ class TermsRefs extends Component
     }
     public function render()
     {
-        return view('livewire.terms-refs');
+        $term_refs = ReferencesTerme::all()->join(['services', 'services.id','=','references_termes.service_id'],
+                                                ['provinces', 'provinces.id','=','references_termes.province_id'],
+                                                ['partenaires', 'partenaires.id','=','references_termes.partenaire_id']);
+        //->join('services', 'services.id','=','agents.service_id')->get();
+        return view('livewire.terms-refs', ['references_termes'=>$term_refs]);
     }
 }

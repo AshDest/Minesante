@@ -173,6 +173,68 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Liste TDRs</h4>
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0">
+
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Reference</th>
+                                    <th>Objet</th>
+                                    <th>Service</th>
+                                    <th>Activite</th>
+                                    <th>Date Depart</th>
+                                    <th>Date Retour</th>
+                                    <th>Moyen Transport</th>
+                                    <th>Province</th>
+                                    <th>Lieu</th>
+                                    <th>Partenaire</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($term_refs as $term_ref)
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>{{$term_ref->reference}}</td>
+                                    <td>{{$term_ref->objet}}</td>
+                                    <td>{{$term_ref->designation}}</td>                                     <th scope="row">1</th>
+                                    <td>{{$term_ref->activite}}</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>                                 <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                @endforeach
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- end row -->
     <!-- end page title -->
     <div class="row">
