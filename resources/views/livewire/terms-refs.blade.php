@@ -190,12 +190,13 @@
                                     <th>Moyen Transport</th>
                                     <th>Province</th>
                                     <th>Lieu</th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($term_refs as $term_ref)
                                 <tr>
-                                    <th scope="row"></th>
+                                    <th scope="row">{{$term_ref->id}}</th>
                                     <td>{{$term_ref->reference}}</td>
                                     <td>{{$term_ref->objet}}</td>
                                     <td>{{$term_ref->date_dep}}</td>
@@ -203,7 +204,13 @@
                                     <td>{{$term_ref->moyen_transp}}</td>
                                     <td>{{$term_ref->designation}}</td>
                                     <td>{{$term_ref->lieu}}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-info" wire:click.prevent="edit({{$term_ref->id}})">Edit</button>
+                                        <button type="button" class="btn btn-danger" wire:click.prevent="delete({{$term_ref->id}})">Delete</button>
+                                    </td>
+
                                 </tr>
+
                                 @endforeach
                             </tbody>
                         </table>

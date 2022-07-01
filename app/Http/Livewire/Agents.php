@@ -26,9 +26,9 @@ class Agents extends Component
         $this->prenom = '';
     }
 
-    public function edit($ids)
+    public function edit($id)
     {
-        $agent = Agent::where('id',$ids)->first();
+        $agent = Agent::where('id',$id)->first();
         $this->ids = $agent->id;
         $this->matricule = $agent->matricule;
         $this->nom = $agent->nom;
@@ -76,7 +76,11 @@ class Agents extends Component
     use WithPagination;
     public function render()
     {
-        $agents = Agent::orderBy('nom', 'ASC')->join('services', 'services.id','=','agents.service_id')->get();
+
+        $agents = Agent::join('services', 'services.id','=','agents.service_id')
+                    ->select('agents.id as id','matricule','nom','postnom','prenom','sexe','services.designation as designation','signateur', 'services.id as idSev')
+                    ->get();
+        //$agents = Agent::orderBy('nom', 'ASC')->join('services', 'services.id','=','agents.service_id')->get();
         $services = Service::orderBy('designation')->get();
         return view('livewire.agents', ['agents'=>$agents], ['services'=>$services]);
     }

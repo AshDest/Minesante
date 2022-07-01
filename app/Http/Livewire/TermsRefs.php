@@ -167,7 +167,7 @@ class TermsRefs extends Component
         $this->services = Service::orderBy('designation')->get();
         $this->provinces = Province::orderBy('designation')->get();
         $this->agents = Agent::all();
-        $this->term_refs = ReferencesTerme::orderBy('date_dep', 'ASC')->join('provinces', 'provinces.id','=','references_termes.province_id')->get();
+        $this->term_refs = ReferencesTerme::orderBy('date_dep', 'DESC')->join('provinces', 'provinces.id','=','references_termes.province_id')->get();
     }
     public function render()
     {
