@@ -127,7 +127,7 @@ class TermsRefs extends Component
 
     public function editParticipant($idP)
     {
-        dd($idP);
+        $this->reference_id = $idP;
         /*
         $participant = Participant::where('id',$idPs)->find();
         $this->idPs = $participant->id;

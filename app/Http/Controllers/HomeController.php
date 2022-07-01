@@ -50,8 +50,8 @@ class HomeController extends Controller
     {
         return view('pages.terms-ref');
     }
-    public function participant()
+    public function participant($idTerm)
     {
-        return view('pages.participant', compact('$idTerm'));
+        return view('pages.participant', compact('idTerm'));
     }
 }

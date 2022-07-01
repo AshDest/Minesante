@@ -205,7 +205,7 @@
                                     <td>{{$term_ref->province}}</td>
                                     <td>{{$term_ref->lieu}}</td>
                                     <td>
-                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" >View</button>
+                                        <a class="btn btn-success" href="/participants/{{$term_ref->id}}">View</a>
                                         <button type="button" class="btn btn-info" wire:click.prevent="edit({{$term_ref->id}})">Edit</button>
                                         <button type="button" class="btn btn-danger" wire:click.prevent="delete({{$term_ref->id}})">Delete</button>
                                     </td>
@@ -232,11 +232,11 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          ...
+          <input type="text" class="form-control" wire:model='partenaire_id' value="{{$term_ref->id}}">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-primary" wire:click.prevent="editParticipant({{$term_ref->id}})">Save changes</button>
         </div>
       </div>
     </div>
