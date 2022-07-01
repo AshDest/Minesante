@@ -37,6 +37,9 @@ class TermsRefs extends Component
     public $agent_id;
     public $reference_id;
 
+
+    public $dateTest;
+
     public function resetInputFields()
     {
         $this->reference = '';
@@ -116,6 +119,11 @@ class TermsRefs extends Component
         }
     }
 
+    public function test()
+    {
+        dd($this->dateTest);
+    }
+
     public function editParticipant($idPs)
     {
         $participant = Participant::where('id',$idPs)->find();
@@ -159,12 +167,10 @@ class TermsRefs extends Component
         $this->services = Service::orderBy('designation')->get();
         $this->provinces = Province::orderBy('designation')->get();
         $this->agents = Agent::all();
-        $this->term_refs = ReferencesTerme::all();
+        $this->term_refs = ReferencesTerme::orderBy('date_dep', 'ASC')->join('provinces', 'provinces.id','=','references_termes.province_id')->get();
     }
     public function render()
     {
-
-        //->join('services', 'services.id','=','agents.service_id')->get();
         return view('livewire.terms-refs');
     }
 }

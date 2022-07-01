@@ -61,14 +61,14 @@
                                     <label class="col-form-label col-lg-2">Dates</label>
                                     <div class="col-lg-10">
                                         <div class="mb-3">
-                                            <input type="text" id="input-date1" name="date_dep" class="form-control" wire:model='date_dep'
+                                            <input type="date" id="date_dep" name="date_dep" class="form-control" wire:model='date_dep'
                                             data-inputmask-inputformat="dd/mm/yyyy">
                                             <span class="text-muted">e.g "dd/mm/yyyy"</span>
                                             @error('date_dep')
                                             <span class="text-danger">{{$message}}</span>
                                             @enderror
 
-                                            <input type="text" id="input-date1" name="date_ret" class="form-control" wire:model='date_ret'
+                                            <input type="date" id="input-date1" name="date_ret" class="form-control" wire:model='date_ret'
                                             data-inputmask-inputformat="dd/mm/yyyy">
                                             <span class="text-muted">e.g "dd/mm/yyyy"</span>
                                             @error('date_dep')
@@ -168,7 +168,6 @@
                             </div>
                         </div>
                     </form>
-
                 </div>
             </div>
         </div>
@@ -186,30 +185,24 @@
                                     <th>#</th>
                                     <th>Reference</th>
                                     <th>Objet</th>
-                                    <th>Service</th>
-                                    <th>Activite</th>
                                     <th>Date Depart</th>
                                     <th>Date Retour</th>
                                     <th>Moyen Transport</th>
                                     <th>Province</th>
                                     <th>Lieu</th>
-                                    <th>Partenaire</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($term_refs as $term_ref)
                                 <tr>
-                                    <th scope="row">1</th>
+                                    <th scope="row"></th>
                                     <td>{{$term_ref->reference}}</td>
                                     <td>{{$term_ref->objet}}</td>
-                                    <td>{{$term_ref->designation}}</td>                                     <th scope="row">1</th>
                                     <td>{{$term_ref->date_dep}}</td>
                                     <td>{{$term_ref->date_ret}}</td>
-                                    <td>{{$term_ref->moyen_transp}}</td>                                 <th scope="row">1</th>
-                                    <td>{{$term_ref->designation}}</td>
+                                    <td>{{$term_ref->moyen_transp}}</td>
                                     <td>{{$term_ref->designation}}</td>
                                     <td>{{$term_ref->lieu}}</td>
-                                    <td>{{$term_ref->designation}}</td>
                                 </tr>
                                 @endforeach
                             </tbody>

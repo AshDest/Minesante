@@ -143,6 +143,19 @@
 
     <script src="{{ asset('assets/js/pages/task-create.init.js') }}"></script>
 
+    <!-- to pick date input -->
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+
+    <!-- Plugins js -->
+    <script src="{{ asset('assets/libs/moment/moment.js') }}"></script>
+    <script src="{{ asset('assets/libs/bootstrap-editable/js/index.js') }}"></script>
+
+    <!-- Init js-->
+    <script src="{{ asset('assets/js/pages/form-xeditable.init.js') }}"></script>
+
     <!-- App js -->
     <script src="{{ asset('assets/js/app.js') }}"></script>
     @livewireScripts
