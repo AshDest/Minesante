@@ -125,12 +125,15 @@ class TermsRefs extends Component
         dd($this->dateTest);
     }
 
-    public function editParticipant($idPs)
+    public function editParticipant($idP)
     {
+        dd($idP);
+        /*
         $participant = Participant::where('id',$idPs)->find();
         $this->idPs = $participant->id;
         $this->reference_id = $participant->reference_id;
         $this->agent_id = $participant->agent_id;
+        */
     }
 
     public function update_participant()

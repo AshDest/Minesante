@@ -24,6 +24,8 @@ Route::get('/provinces', [App\Http\Controllers\HomeController::class, 'province'
 Route::get('/partenaires', [App\Http\Controllers\HomeController::class, 'partenaire'])->name('partenaire');
 Route::get('/agents', [App\Http\Controllers\HomeController::class, 'agent'])->name('agents');
 Route::get('/terme-refs', [App\Http\Controllers\HomeController::class, 'reference_term'])->name('reference_term');
+Route::get('/participants/{idTerm}', [App\Http\Controllers\HomeController::class, 'participant'])->name('participant');
+
 
 
 Auth::routes();
