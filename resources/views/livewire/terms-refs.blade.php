@@ -203,30 +203,15 @@
                                     <td>{{$term_ref->reference}}</td>
                                     <td>{{$term_ref->objet}}</td>
                                     <td>{{$term_ref->designation}}</td>                                     <th scope="row">1</th>
-                                    <td>{{$term_ref->activite}}</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>                                 <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
+                                    <td>{{$term_ref->date_dep}}</td>
+                                    <td>{{$term_ref->date_ret}}</td>
+                                    <td>{{$term_ref->moyen_transp}}</td>                                 <th scope="row">1</th>
+                                    <td>{{$term_ref->designation}}</td>
+                                    <td>{{$term_ref->designation}}</td>
+                                    <td>{{$term_ref->lieu}}</td>
+                                    <td>{{$term_ref->designation}}</td>
                                 </tr>
                                 @endforeach
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
