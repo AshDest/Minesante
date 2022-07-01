@@ -202,7 +202,7 @@
                                     <td>{{$term_ref->date_dep}}</td>
                                     <td>{{$term_ref->date_ret}}</td>
                                     <td>{{$term_ref->moyen_transp}}</td>
-                                    <td>{{$term_ref->designation}}</td>
+                                    <td>{{$term_ref->province}}</td>
                                     <td>{{$term_ref->lieu}}</td>
                                     <td>
                                         <button type="button" class="btn btn-info" wire:click.prevent="edit({{$term_ref->id}})">Edit</button>

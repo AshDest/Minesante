@@ -24,6 +24,7 @@ class TermsRefs extends Component
     public $province_id;
     public $signateur;
     public $user_id;
+    public $bool = true;
 
     //testing selection
     //public $selectedPartener = null;
@@ -167,7 +168,15 @@ class TermsRefs extends Component
         $this->services = Service::orderBy('designation')->get();
         $this->provinces = Province::orderBy('designation')->get();
         $this->agents = Agent::all();
-        $this->term_refs = ReferencesTerme::orderBy('date_dep', 'DESC')->join('provinces', 'provinces.id','=','references_termes.province_id')->get();
+        $this->term_refs = ReferencesTerme::orderBy('date_dep', 'DESC')
+                        ->join('provinces', 'provinces.id','=','references_termes.province_id')
+                        ->join('partenaires', 'partenaires.id','=', 'references_termes.partenaire_id')
+                        ->join('services', 'services.id','=','references_termes.service_id')
+                        ->select('references_termes.id as id','reference','objet','date_dep','date_ret',
+                                'moyen_transp','lieu','provinces.designation as province',
+                                'services.id as service_id','partenaires.id as partenaire_id','signateur',
+                                'provinces.id as province_id')
+                        ->get();
     }
     public function render()
     {
