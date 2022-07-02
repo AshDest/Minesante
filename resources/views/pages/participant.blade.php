@@ -1,4 +1,4 @@
 @extends('layouts.default')
 @section('content')
-    @livewire('participants')
+    @livewire('participants',['idTerm'=>$idTerm])
 @endsection

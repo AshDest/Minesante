@@ -94,7 +94,6 @@
 
     <!-- Table Editable plugin -->
     <script src="{{ asset('assets/libs/table-edits/build/table-edits.min.js') }}"></script>
-
     <script src="{{ asset('assets/js/pages/table-editable.int.js') }}"></script>
 
     <!-- Buttons examples -->
@@ -127,9 +126,7 @@
 
     <!-- jquery.vectormap map -->
     <script src="{{ asset('assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js') }}"></script>
-    <script src="{{ asset('assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-us-merc-en.js') }}">
-    </script>
-
+    <script src="{{ asset('assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-us-merc-en.js') }}"></script>
     <script src="{{ asset('assets/js/pages/dashboard.init.js') }}"></script>
 
     <!-- bootstrap datepicker -->
@@ -140,14 +137,16 @@
 
     <!-- form repeater js -->
     <script src="{{ asset('assets/libs/jquery.repeater/jquery.repeater.min.js') }}"></script>
-
     <script src="{{ asset('assets/js/pages/task-create.init.js') }}"></script>
 
-    <!-- to pick date input -->
+    <script src="{{ asset('assets/libs/select2/js/select2.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js') }}"></script>
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <!-- form advanced init -->
+    <script src="{{ asset('assets/js/pages/form-advanced.init.js') }}"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
 
     <!-- Plugins js -->
     <script src="{{ asset('assets/libs/moment/moment.js') }}"></script>
@@ -159,6 +158,7 @@
     <!-- App js -->
     <script src="{{ asset('assets/js/app.js') }}"></script>
     @livewireScripts
+
 
 </body>
 
