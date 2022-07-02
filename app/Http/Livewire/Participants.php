@@ -60,7 +60,7 @@ class Participants extends Component
                             ->select('id','agents.nom as nom', 'agents.postnom as postnom', 'agents.prenom as prenom',
                                 'services.designation as designation')
                                 ->join('agents', 'agents.id','=','participants.agent_id')
-                                ->join('services', 'services.id','=','agents.service_');
+                                ->join('services', 'services.id','=','agents.service_')->get();
         $agents = Agent::all();
         return view('livewire.participants',['participants'=>$participants],['agents'=>$agents]);
     }
