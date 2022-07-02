@@ -1,4 +1,10 @@
 <div class="page-content">
+    @php
+        use App\Models\ReferencesTerme;
+
+        $reference = ReferencesTerme::select('id','reference')->where('id',$idTerm)->first();
+
+    @endphp
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
@@ -8,6 +14,13 @@
             </div>
         </div>
     </div>
-    <input type="text" wire:model='idTerm'>
-    <button type="button" class="btn btn-success" wire:click.prevent="edit({{$term_ref->id}})>Test</button>
+    <h3>{{$reference->reference}}</h3>
+    <div class="row">
+        <div class="col-lg-4">
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-lg-4">
+            <button type="button" class="btn btn-success">Test</button>
+        </div>
+    </div>
 </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\ReferencesTerme;
 use Livewire\Component;
 
 class Participants extends Component
