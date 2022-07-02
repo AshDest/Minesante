@@ -1,7 +1,7 @@
 @php
 use App\Models\ReferencesTerme;
 use App\Models\Participant;
-$reference = ReferencesTerme::select('id','reference')->where('id',$idTerm)->first();
+$reference = ReferencesTerme::select('id','reference')->where('id',$reference_id)->first();
 @endphp
 <div class="page-content">
     <div class="row">
@@ -13,32 +13,37 @@ $reference = ReferencesTerme::select('id','reference')->where('id',$idTerm)->fir
             </div>
         </div>
     </div>
-    <h3>TERME DE REFERENCE N°:{{$reference->reference}}</h3>
+    <h3>TERME DE REFERENCE N°:{{$reference->reference}}</h3> <label ></label>
     <div class="row">
         <div class="col-lg-6">
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Participants</h4>
-                    <form>
+                    <form wire:submit.prevent="update">
+                        <input type="hidden" name="id" wire:model='idTerm' value="{{$reference->id}}">
                         <div class="mb-3">
-                            <select class="form-control select2">
-                                <option>-- Select Agent --</option>
+                            <select class="form-control select2" wire:model='agent_id' name="agent_id">
+                                <option value="">-- Select Agent --</option>
                                 @foreach ($agents as $agent)
                                     <option value="{{$agent->id}}">{{$agent->nom}} {{$agent->postnom}} {{$agent->prenom}}</option>
                                 @endforeach
                             </select>
+                            @error('agent_id')
+                            <span class="text-danger">{{$message}}</span>
+                            @enderror
                         </div>
                         <div class="col-lg-4">
-                            <button type="button" class="btn btn-success">Ajouter</button>
+                            <button class="btn btn-success">Ajouter</button>
                         </div>
                     </form>
                 </div>
             </div>
             <!-- end select2 -->
-
         </div>
-
     </div>
+    @if (session()->has('message'))
+    <div class="alert alert-success">{{session('message')}}</div>
+    @endif
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
