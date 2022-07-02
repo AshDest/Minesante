@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Agent;
 use App\Models\Participant;
 use App\Models\ReferencesTerme;
 use Livewire\Component;
@@ -26,6 +27,7 @@ class Participants extends Component
                                 'services.designation as designation')
                                 ->join('agents', 'agents.id','=','participants.agent_id')
                                 ->join('services', 'services.id','=','agents.service_');
-        return view('livewire.participants',['participants'=>$participants]);
+        $agents = Agent::all();
+        return view('livewire.participants',['participants'=>$participants],['agents'=>$agents]);
     }
 }
