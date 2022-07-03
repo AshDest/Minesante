@@ -159,9 +159,14 @@
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
-                                                    <label for="formFile" class="form-label">Default file input example</label>
-                                                    <input class="form-control" type="file" id="formFile">
-                                                  </div>
+                                                    <label for="formFile" class="form-label">Default file input
+                                                        example</label>
+                                                    <input class="form-control" wire:model='file' type="file"
+                                                        id="formFile" name="file">
+                                                </div>
+                                                @error('file')
+                                                <span class="text-danger">{{$message}}</span>
+                                                @enderror
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="col-lg-10">

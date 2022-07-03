@@ -9,9 +9,11 @@ use App\Models\Province;
 use App\Models\ReferencesTerme;
 use Livewire\Component;
 use App\Models\Service;
+use Livewire\WithFileUploads;
 
 class TermsRefs extends Component
 {
+    use WithFileUploads;
     public $ids;
     public $reference;
     public $service_id;
@@ -65,6 +67,7 @@ class TermsRefs extends Component
         $this->reference = $term_ref->reference;
         $this->service_id = $term_ref->service_id;
         $this->objet = $term_ref->objet;
+        $this->file = $term_ref->file;
         $this->date_dep = $term_ref->date_dep;
         $this->date_ret = $term_ref->date_ret;
         $this->moyen_transp = $term_ref->moyen_transp;
@@ -72,8 +75,8 @@ class TermsRefs extends Component
         $this->lieu = $term_ref->lieu;
         $this->province_id = $term_ref->province_id;
         $this->signateur = $term_ref->signateur;
-        $this->user_id = $term_ref->user_id;
-        $this->file = $term_ref->file;
+       // $this->user_id = $term_ref->user_id;
+
     }
 
     public function update()
@@ -89,8 +92,10 @@ class TermsRefs extends Component
             'lieu' => 'required',
             'province_id' => 'required',
             'signateur' => 'required',
+            'file' => 'required'
             //'user_id' => 'required',
         ]);
+        $this->file->storeAs('files', 'document');
         if($this->ids)
         {
             $term_ref = ReferencesTerme::find($this->ids);
@@ -105,6 +110,7 @@ class TermsRefs extends Component
                 'lieu' => $this->lieu,
                 'province_id' => $this->partenaire_id,
                 'signateur' => $this->signateur,
+                'file' => $this->file
                 //'user_id' => $this->user_id,
             ]);
             session()->flash('message', 'Termes updated Successfully');
