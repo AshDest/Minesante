@@ -19,33 +19,38 @@
                 <div class="card-body">
                     <h4 class="card-title mb-4">Creation d'un terme de Reference</h4>
                     <form wire:submit.prevent="update">
+                        <div class="col-lg-10">
+                            <label for="taskname" class="form-label">Numero Terme</label>
+                            <input id="taskname" name="reference" wire:model='reference' type="text"
+                                class="form-control" placeholder="ORDRE DE SERVICE COLLECTIF N°:">
+                            @error('reference')
+                            <span class="text-danger">{{$message}}</span>
+                            @enderror
+                        </div>
+                        <div class="col-lg-10">
+                            <div class="col-lg-5">
+                                <label class="form-label">Service</label>
+                                    <select class="form-select" name="service_id"
+                                        aria-label="Default select example" wire:model='service_id'
+                                        name="service_id">
+                                        <option selected value=""> --Select-- </option>
+                                        @foreach ($services as $service)
+                                        <option value="{{$service->id}}">{{$service->designation}}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('service_id')
+                                    <span class="text-danger">{{$message}}</span>
+                                    @enderror
+                            </div>
+                        </div>
                         <div data-repeater-list="outer-group" class="outer">
                             <div data-repeater-item class="outer">
                                 <div class="form-group row mb-4">
-                                    <label for="taskname" class="col-form-label col-lg-2">Numero Terme</label>
-                                    <div class="col-lg-10">
-                                        <input id="taskname" name="reference" wire:model='reference' type="text"
-                                            class="form-control" placeholder="ORDRE DE SERVICE COLLECTIF N°:">
-                                        @error('reference')
-                                        <span class="text-danger">{{$message}}</span>
-                                        @enderror
-                                    </div>
+
+
                                 </div>
                                 <div class="form-group row mb-4">
-                                    <label class="col-form-label col-lg-2">Service</label>
-                                    <div class="col-lg-10">
-                                        <select class="form-select" name="service_id"
-                                            aria-label="Default select example" wire:model='service_id'
-                                            name="service_id">
-                                            <option selected value=""> --Select-- </option>
-                                            @foreach ($services as $service)
-                                            <option value="{{$service->id}}">{{$service->designation}}</option>
-                                            @endforeach
-                                        </select>
-                                        @error('service_id')
-                                        <span class="text-danger">{{$message}}</span>
-                                        @enderror
-                                    </div>
+
                                 </div>
                                 <div class="form-group row mb-4">
                                     <label for="taskname" class="col-form-label col-lg-2">Objet de la Mission</label>
@@ -61,15 +66,15 @@
                                     <label class="col-form-label col-lg-2">Dates</label>
                                     <div class="col-lg-10">
                                         <div class="mb-3">
-                                            <input type="date" id="date_dep" name="date_dep" class="form-control" wire:model='date_dep'
-                                            data-inputmask-inputformat="dd/mm/yyyy">
+                                            <input type="date" id="date_dep" name="date_dep" class="form-control"
+                                                wire:model='date_dep' data-inputmask-inputformat="dd/mm/yyyy">
                                             <span class="text-muted">e.g "dd/mm/yyyy"</span>
                                             @error('date_dep')
                                             <span class="text-danger">{{$message}}</span>
                                             @enderror
 
-                                            <input type="date" id="input-date1" name="date_ret" class="form-control" wire:model='date_ret'
-                                            data-inputmask-inputformat="dd/mm/yyyy">
+                                            <input type="date" id="input-date1" name="date_ret" class="form-control"
+                                                wire:model='date_ret' data-inputmask-inputformat="dd/mm/yyyy">
                                             <span class="text-muted">e.g "dd/mm/yyyy"</span>
                                             @error('date_dep')
                                             <span class="text-danger">{{$message}}</span>
@@ -157,6 +162,12 @@
                                                     @enderror
                                                 </div>
                                             </div>
+                                            <div class="col-lg-6">
+                                                <div class="mb-3">
+                                                    <label for="formFile" class="form-label">Default file input example</label>
+                                                    <input class="form-control" type="file" id="formFile">
+                                                  </div>
+                                            </div>
                                             <div class="col-md-6">
                                                 <div class="col-lg-10">
                                                     <button class="btn btn-primary">Enregistrer</button>
@@ -179,7 +190,6 @@
                     <h4 class="card-title">Liste TDRs</h4>
                     <div class="table-responsive">
                         <table class="table table-hover mb-0">
-
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -206,45 +216,25 @@
                                     <td>{{$term_ref->lieu}}</td>
                                     <td>
                                         <a class="btn btn-success" href="/participants/{{$term_ref->id}}">View</a>
-                                        <button type="button" class="btn btn-info" wire:click.prevent="edit({{$term_ref->id}})">Edit</button>
-                                        <button type="button" class="btn btn-danger" wire:click.prevent="delete({{$term_ref->id}})">Delete</button>
+                                        <button type="button" class="btn btn-info"
+                                            wire:click.prevent="edit({{$term_ref->id}})">Edit</button>
+                                        <button type="button" class="btn btn-danger"
+                                            wire:click.prevent="delete({{$term_ref->id}})">Delete</button>
                                     </td>
-
                                 </tr>
-
                                 @endforeach
                             </tbody>
                         </table>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
     <!-- end row -->
-
-    <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <input type="text" class="form-control" wire:model='partenaire_id' value="{{$term_ref->id}}">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" wire:click.prevent="editParticipant({{$term_ref->id}})">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
     <!-- end page title -->
     <div class="row">
 
     </div>
     <!-- end row -->
 </div>
+<!-- Modal -->

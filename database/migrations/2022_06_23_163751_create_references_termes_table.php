@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('service_id');
             $table->foreign('service_id')->references('id')->on('services');
             $table->string('objet');
+            $table->string('file');
             $table->date('date_dep');
             $table->date('date_ret');
             $table->string('moyen_transp');
