@@ -45,7 +45,7 @@ class Participants extends Component
         else
         {
             Participant::create($validateData);
-            session()->flash('message', 'Agent ajouter Successfully');
+            session()->flash('message', 'Agent created Successfully');
             $this->resetInputFields();
         }
     }
@@ -56,11 +56,11 @@ class Participants extends Component
     }
     public function render()
     {
-        $participants = Participant::where($this->reference_id)
-                            ->select('id','agents.nom as nom', 'agents.postnom as postnom', 'agents.prenom as prenom',
-                                'services.designation as designation')
+        $participants = Participant::where('reference_id',$this->reference_id)
+                            ->select('participants.id as id','agents.nom as nom', 'agents.postnom as postnom', 'agents.prenom as prenom',
+                                'services.designation as designation','agents.id as idAg', 'services.id as idSer')
                                 ->join('agents', 'agents.id','=','participants.agent_id')
-                                ->join('services', 'services.id','=','agents.service_')->get();
+                                ->join('services', 'services.id','=','agents.service_id')->get();
         $agents = Agent::all();
         return view('livewire.participants',['participants'=>$participants],['agents'=>$agents]);
     }
