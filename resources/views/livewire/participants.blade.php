@@ -71,7 +71,7 @@ $reference = ReferencesTerme::select('id','reference')->where('id',$reference_id
                                     <td>{{$participant->prenom}}</td>
                                     <td>{{$participant->designation}}</td>
                                     <td>
-                                        <button type="button" class="btn btn-info">Remplacer</button>
+                                        <button type="button" class="btn btn-info" wire:click.prevent="edit({{$participant->id}})">Remplacer</button>
                                         <button type="button" class="btn btn-danger"
                                             wire:click.prevent="delete({{$participant->id}})">Delete</button>
                                     </td>

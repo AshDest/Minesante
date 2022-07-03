@@ -70,7 +70,7 @@ class Provinces extends Component
     use WithPagination;
     public function render()
     {
-        $provinces = Province::orderBy('designation', 'ASC')->paginate(10);
+        $provinces = Province::orderBy('designation', 'ASC')->paginate(100);
         return view('livewire.provinces', ['provinces'=>$provinces]);
     }
 }

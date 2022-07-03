@@ -53,6 +53,16 @@ class Participants extends Component
         }
     }
 
+    public function delete($id)
+    {
+        if($id)
+        {
+            Participant::where('id',$id)->delete();
+            session()->flash('message', 'Participant deleted successfully');
+        }
+    }
+
+
     public function mount($reference_id)
     {
         $this->reference_id = $reference_id;
