@@ -19,38 +19,33 @@
                 <div class="card-body">
                     <h4 class="card-title mb-4">Creation d'un terme de Reference</h4>
                     <form wire:submit.prevent="update">
-                        <div class="col-lg-10">
-                            <label for="taskname" class="form-label">Numero Terme</label>
-                            <input id="taskname" name="reference" wire:model='reference' type="text"
-                                class="form-control" placeholder="ORDRE DE SERVICE COLLECTIF N°:">
-                            @error('reference')
-                            <span class="text-danger">{{$message}}</span>
-                            @enderror
-                        </div>
-                        <div class="col-lg-10">
-                            <div class="col-lg-5">
-                                <label class="form-label">Service</label>
-                                    <select class="form-select" name="service_id"
-                                        aria-label="Default select example" wire:model='service_id'
-                                        name="service_id">
-                                        <option selected value=""> --Select-- </option>
-                                        @foreach ($services as $service)
-                                        <option value="{{$service->id}}">{{$service->designation}}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('service_id')
-                                    <span class="text-danger">{{$message}}</span>
-                                    @enderror
-                            </div>
-                        </div>
                         <div data-repeater-list="outer-group" class="outer">
                             <div data-repeater-item class="outer">
                                 <div class="form-group row mb-4">
-
-
+                                    <label for="taskname" class="col-form-label col-lg-2">Numero Terme</label>
+                                    <div class="col-lg-10">
+                                        <input id="taskname" name="reference" wire:model='reference' type="text"
+                                            class="form-control" placeholder="ORDRE DE SERVICE COLLECTIF N°:">
+                                        @error('reference')
+                                        <span class="text-danger">{{$message}}</span>
+                                        @enderror
+                                    </div>
                                 </div>
                                 <div class="form-group row mb-4">
-
+                                    <label class="col-form-label col-lg-2">Service</label>
+                                    <div class="col-lg-10">
+                                        <select class="form-select" name="service_id"
+                                            aria-label="Default select example" wire:model='service_id'
+                                            name="service_id">
+                                            <option selected value=""> --Select-- </option>
+                                            @foreach ($services as $service)
+                                            <option value="{{$service->id}}">{{$service->designation}}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('service_id')
+                                        <span class="text-danger">{{$message}}</span>
+                                        @enderror
+                                    </div>
                                 </div>
                                 <div class="form-group row mb-4">
                                     <label for="taskname" class="col-form-label col-lg-2">Objet de la Mission</label>
@@ -68,14 +63,14 @@
                                         <div class="mb-3">
                                             <input type="date" id="date_dep" name="date_dep" class="form-control"
                                                 wire:model='date_dep' data-inputmask-inputformat="dd/mm/yyyy">
-                                            <span class="text-muted">e.g "dd/mm/yyyy"</span>
+                                            <span class="text-muted">Aller</span>
                                             @error('date_dep')
                                             <span class="text-danger">{{$message}}</span>
                                             @enderror
 
                                             <input type="date" id="input-date1" name="date_ret" class="form-control"
                                                 wire:model='date_ret' data-inputmask-inputformat="dd/mm/yyyy">
-                                            <span class="text-muted">e.g "dd/mm/yyyy"</span>
+                                            <span class="text-muted">Retour</span>
                                             @error('date_dep')
                                             <span class="text-danger">{{$message}}</span>
                                             @enderror
@@ -130,8 +125,8 @@
                                     <label class="col-form-label col-lg-2">Lieu</label>
                                     <div class="inner col-lg-10 ms-md-auto">
                                         <div class="mb-3 row align-items-center">
-                                            <div class="col-md-6">
-                                                <div class="col-lg-10">
+                                            <div class="col-md-12">
+                                                <div class="col-lg-12">
                                                     <input id="taskbudget" name="lieu" wire:model='lieu' type="text"
                                                         placeholder="Le lieu à visiter..." class="form-control">
                                                     @error('lieu')

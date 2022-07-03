@@ -23,5 +23,6 @@ class ReferencesTerme extends Model
         'province_id',
         'signateur',
         'user_id',
+        'file',
     ];
 }

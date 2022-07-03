@@ -24,6 +24,7 @@ class TermsRefs extends Component
     public $province_id;
     public $signateur;
     public $user_id;
+    public $file;
     public $bool = true;
 
     //testing selection
@@ -54,11 +55,7 @@ class TermsRefs extends Component
         $this->province_id = '';
         $this->signateur = '';
         $this->user_id = '';
-    }
-
-    public function resetInputAgentFields()
-    {
-        $this->agent_id = '';
+        $this->file = '';
     }
 
     public function edit($ids)
@@ -76,6 +73,7 @@ class TermsRefs extends Component
         $this->province_id = $term_ref->province_id;
         $this->signateur = $term_ref->signateur;
         $this->user_id = $term_ref->user_id;
+        $this->file = $term_ref->file;
     }
 
     public function update()
