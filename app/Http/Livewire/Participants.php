@@ -6,6 +6,7 @@ use App\Models\Agent;
 use App\Models\Participant;
 use App\Models\ReferencesTerme;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Participants extends Component
 {
@@ -13,6 +14,8 @@ class Participants extends Component
     public $ids;
     public $reference_id;
     public $agent_id;
+
+    public $agents;
 
     public function resetInputFields()
     {
@@ -53,7 +56,10 @@ class Participants extends Component
     public function mount($reference_id)
     {
         $this->reference_id = $reference_id;
+        $this->agents = Agent::all();
     }
+
+    use WithPagination;
     public function render()
     {
         $participants = Participant::where('reference_id',$this->reference_id)
@@ -61,7 +67,6 @@ class Participants extends Component
                                 'services.designation as designation','agents.id as idAg', 'services.id as idSer')
                                 ->join('agents', 'agents.id','=','participants.agent_id')
                                 ->join('services', 'services.id','=','agents.service_id')->get();
-        $agents = Agent::all();
-        return view('livewire.participants',['participants'=>$participants],['agents'=>$agents]);
+        return view('livewire.participants',['participants'=>$participants]);
     }
 }
