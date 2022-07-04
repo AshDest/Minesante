@@ -128,48 +128,6 @@ class TermsRefs extends Component
     {
         dd($this->dateTest);
     }
-
-    public function editParticipant($idP)
-    {
-        $this->reference_id = $idP;
-        /*
-        $participant = Participant::where('id',$idPs)->find();
-        $this->idPs = $participant->id;
-        $this->reference_id = $participant->reference_id;
-        $this->agent_id = $participant->agent_id;
-        */
-    }
-
-    public function update_participant()
-    {
-        $validatedData = $this->validate([
-            'reference_id' => 'required',
-            'agent_id' => 'required',
-        ]);
-        if($this->idPs)
-        {
-            $participant = Participant::find($this->idPs);
-            $participant->update([
-                'reference_id' => $this->reference_id,
-                'agent_id' => $this->agent_id
-            ]);
-            session()->flash('message', 'Agent updated successfully');
-            $this->resetInputAgentFields();
-        }
-        else
-        {
-            Participant::create($validatedData);
-            session()->flash('message', 'Agent added successfully');
-            $this->resetInputAgentFields();
-        }
-    }
-
-    public function saveAll()
-    {
-        $this->update();
-        $this->update_participant();
-    }
-
     public function mount(){
         $this->partenaires = Partenaire::all();
         $this->services = Service::orderBy('designation')->get();
