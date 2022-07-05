@@ -7,26 +7,39 @@
                 <div class="bg-login text-center">
                     <div class="bg-login-overlay"></div>
                     <div class="position-relative">
-                        <h5 class="text-white font-size-20">Welcome Back !</h5>
-                        <p class="text-white-50 mb-0">Sign in to continue to Qovex.</p>
+                        <h5 class="text-white font-size-20">TERME DE REFERENCE</h5>
+                        <p class="text-white-50 mb-0"></p>
                         <a href="index.html" class="logo logo-admin mt-4">
-                            <img src="assets/images/logo-sm-dark.png" alt="" height="30">
+
                         </a>
                     </div>
                 </div>
                 <div class="card-body pt-5">
                     <div class="p-2">
-                        <form class="form-horizontal" action="https://themesdesign.in/qovex-node/layouts/index.html">
-
+                        <form class="form-horizontal" method="POST" action="{{ route('login') }}">
+                            @csrf
                             <div class="mb-3">
                                 <label class="form-label" for="username">Username</label>
-                                <input type="text" class="form-control" id="username" placeholder="Enter username">
+                                <input type="email" class="form-control @error('email') is-invalid @enderror"
+                                    name="email" value="{{ old('email') }}" required autocomplete="email"
+                                    autofocus id="username" placeholder="Enter username">
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label" for="userpassword">Password</label>
-                                <input type="password" class="form-control" id="userpassword"
+                                <input type="password" class="form-control @error('password') is-invalid @enderror"
+                                name="password" required autocomplete="current-password" id="userpassword"
                                 placeholder="Enter password">
+                                @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                             </div>
 
                             <div class="form-check">
@@ -50,11 +63,9 @@
                 </div>
             </div>
             <div class="mt-5 text-center">
-                <p>Don't have an account ? <a href="pages-register.html"
-                        class="fw-medium text-primary"> Signup now </a> </p>
                 <p>©
-                    <script>document.write(new Date().getFullYear())</script> Qovex. Crafted with <i
-                        class="mdi mdi-heart text-danger"></i> by Themesbrand
+                    <script>document.write(new Date().getFullYear())</script><i
+                        class="mdi mdi-heart text-danger"></i>
                 </p>
             </div>
 
