@@ -31,6 +31,4 @@ Route::get('/participants/{reference_id}', [App\Http\Controllers\HomeController:
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-//Route::get('/services', Services::class);
-//Route::get('/test', Toto::class);
 
