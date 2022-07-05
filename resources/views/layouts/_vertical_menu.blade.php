@@ -17,7 +17,7 @@
                 </li>
                 <li>
                     <a href="/terme-refs" class=" waves-effect">
-                        <i class="mdi mdi-account-circle-outline"></i>
+                        <i class="mdi mdi-clipboard-list-outline"></i>
                         <span>Termes de Reference</span>
                     </a>
                 </li>
@@ -25,7 +25,7 @@
                 <li class="menu-title">Parametre</li>
                 <li>
                     <a href="/partenaires" class=" waves-effect">
-                        <i class="mdi mdi-account-circle-outline"></i>
+                        <i class="mdi mdi-file-tree"></i>
                         <span>Partenaires</span>
                     </a>
                 </li>
@@ -37,13 +37,13 @@
                 </li>
                 <li>
                     <a href="/services" class=" waves-effect">
-                        <i class="mdi mdi-calendar-text"></i>
+                        <i class="mdi mdi-flip-horizontal"></i>
                         <span>Services</span>
                     </a>
                 </li>
                 <li>
                     <a href="/provinces" class=" waves-effect">
-                        <i class="mdi mdi-calendar-text"></i>
+                        <i class="mdi mdi-map-marker-outline"></i>
                         <span>Provinces</span>
                     </a>
                 </li>
