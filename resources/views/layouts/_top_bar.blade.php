@@ -1,4 +1,13 @@
 <header id="page-topbar">
+@guest
+    @if (Route::has('login'))
+
+    @endif
+
+    @if (Route::has('register'))
+
+    @endif
+@else
     <div class="navbar-header">
         <div class="container-fluid">
             <div class="float-end">
@@ -84,4 +93,5 @@
 
         </div>
     </div>
+    @endguest
 </header> <!-- ========== Left Sidebar Start ========== -->
