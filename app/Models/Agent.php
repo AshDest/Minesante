@@ -20,4 +20,9 @@ class Agent extends Model
         'service_id',
         'signateur',
     ];
+
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
 }
