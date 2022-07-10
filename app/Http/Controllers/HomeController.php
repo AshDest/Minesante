@@ -54,4 +54,9 @@ class HomeController extends Controller
     {
         return view('pages.participant', compact('reference_id'));
     }
+
+    public function utilisateurs()
+    {
+        return view('pages.utilisateur');
+    }
 }

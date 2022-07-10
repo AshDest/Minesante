@@ -25,10 +25,11 @@ Route::get('/partenaires', [App\Http\Controllers\HomeController::class, 'partena
 Route::get('/agents', [App\Http\Controllers\HomeController::class, 'agent'])->name('agents');
 Route::get('/terme-refs', [App\Http\Controllers\HomeController::class, 'reference_term'])->name('reference_term');
 Route::get('/participants/{reference_id}', [App\Http\Controllers\HomeController::class, 'participant'])->name('participant');
+Route::get('/utilisateurs', [App\Http\Controllers\HomeController::class, 'utilisateurs'])->name('utilisateurs');
 
 
 
 Auth::routes();
 
-Route::get('/welcome', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
