@@ -23,6 +23,9 @@
                     <h4 class="card-title">Utilisateurs</h4>
                     <p class="card-title-desc">Liste d'Utilisateurs</p>
 
+                    <div>
+                        <button class="btn btn-success">Ajouter Utilisateurs</button>
+                    </div>>
                     <div class="table-responsive">
                         <table class="table table-editable table-nowrap align-middle table-edits">
                             <thead>

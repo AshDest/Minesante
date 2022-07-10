@@ -47,6 +47,12 @@
                         <span>Provinces</span>
                     </a>
                 </li>
+                <li>
+                    <a href="/utilisateurs" class=" waves-effect">
+                        <i class="mdi mdi-map-circle-outline"></i>
+                        <span>Utilisateurs</span>
+                    </a>
+                </li>
             </ul>
         </div>
         <!-- Sidebar -->
