@@ -19,6 +19,7 @@
                 </div>
             </div>
         </div>
+        @livewire('dashboads')
         <!-- end page title -->
     </div>
     <!-- End Page-content -->
