@@ -11,7 +11,6 @@
                                     <h4>{{$agents}}</h4>
                                 </div>
                             </div>
-
                             <div class="col-4">
                                 <div>
                                     <div id="radial-chart-1"></div>
@@ -31,7 +30,6 @@
                                     <h4>{{$services}}</h4>
                                 </div>
                             </div>
-
                             <div class="col-4">
                                 <div>
                                     <div id="radial-chart-2"></div>
@@ -51,7 +49,6 @@
                                     <h4>{{$termes}}</h4>
                                 </div>
                             </div>
-
                             <div class="col-4">
                                 <div>
                                     <div id="radial-chart-2"></div>
