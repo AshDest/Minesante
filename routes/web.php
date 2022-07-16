@@ -18,6 +18,8 @@ use App\Http\Livewire\Toto;
 Route::get('/', function () {
     return view('welcome');
 });
+Auth::routes();
+
 Route::get('/toto', [App\Http\Controllers\HomeController::class, 'toto'])->name('toto');
 Route::get('/services', [App\Http\Controllers\HomeController::class, 'service'])->name('service');
 Route::get('/provinces', [App\Http\Controllers\HomeController::class, 'province'])->name('province');
@@ -27,9 +29,6 @@ Route::get('/terme-refs', [App\Http\Controllers\HomeController::class, 'referenc
 Route::get('/participants/{reference_id}', [App\Http\Controllers\HomeController::class, 'participant'])->name('participant');
 Route::get('/utilisateurs', [App\Http\Controllers\HomeController::class, 'utilisateurs'])->name('utilisateurs');
 
-
-
-Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
